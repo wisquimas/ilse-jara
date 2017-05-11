@@ -36,3 +36,4 @@ out
 gen
 /wp/wp-config.php
 .htaccess
+/wp/wp-content/uploads/revslider/
