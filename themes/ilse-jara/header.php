@@ -42,6 +42,9 @@ l  `  '  ! |  | /  \ ||     ||  :  | |  | |   |   ||  _  |/  \ |
     <!-- Comienza WP Head -->
     <?php wp_head(); ?>
     <!-- Google Analytics -->
+    <script type='text/javascript'
+            src='//platform-api.sharethis.com/js/sharethis.js#property=5914db8b8415370011847de9&product=custom-share-buttons'
+            async='async'></script>
 </head>
 <body <?php body_class("normal"); ?>>
 <?= \IlseJara\Menu::Imprimir(); ?>
