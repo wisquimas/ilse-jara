@@ -82,7 +82,7 @@ body {
     height: 100%;
     bottom: 0;
     right: 0;
-    pointer-events: none; */
+    pointer-events: none;
 }
 
 .YoutubeSlider--flechas {
@@ -141,4 +141,12 @@ body {
 .YoutubeSlider--slides--boton:hover {
     background-color: white;
     opacity: 1 !important;
+}
+
+.YoutubeSlider--slides--botones--share>div {
+    opacity: 0 !important;
+}
+
+.st-logo {
+    display: none !important;
 }
