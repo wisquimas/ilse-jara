@@ -11,6 +11,8 @@
     <div class="YoutubeSlider--cont">
         <?= $elementos ?>
     </div>
+    <div class="YoutubeSlider--flechas YoutubeSlider--flechas--prev"></div>
+    <div class="YoutubeSlider--flechas YoutubeSlider--flechas--next"></div>
 </div>
 <script>
     var tag = document.createElement('script');

@@ -20,7 +20,8 @@ $htmlSliders = function () use ($opciones) {
                 'uid' => $uid,
             ));
             $elementos .= \Gafa\GafaTemplate::Imprimir('slider_youtube/elemento', array(
-                'uid' => $uid,
+                'uid'  => $uid,
+                'link' => isset($slider['slider_coleccion']) ? \IlseJara\Coleccion::InstanceCached($slider['slider_coleccion'])->link : '',
             ));
             $acciones .= \Gafa\GafaTemplate::Imprimir('slider_youtube/accion', array(
                 'id'   => isset($slider['slider_id_video_de_youtube']) ? $slider['slider_id_video_de_youtube'] : '',

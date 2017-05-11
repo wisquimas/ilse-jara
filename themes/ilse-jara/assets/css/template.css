@@ -6,9 +6,8 @@ body {
 
 .Menu {
     text-align: center;
-    padding: 38px 0;
     background: white;
-    padding-bottom: 28px;
+    padding: 38px 0 28px;
 }
 
 .contenedor {
@@ -16,7 +15,7 @@ body {
     max-width: 1600px;
 }
 
-.Menu--nav .menu>li {
+.Menu--nav .menu > li {
     display: inline-block;
     text-transform: uppercase;
     padding: 0 14px;
@@ -26,20 +25,19 @@ body {
 }
 
 .Menu--nav .menu {
-    padding: 27px 0;
-    padding-bottom: 0;
+    padding: 27px 0 0;
 }
 
-.Menu--nav .menu>li.current-menu-item {
+.Menu--nav .menu > li.current-menu-item {
     font-weight: 800;
 }
 
-.Menu--nav .menu>li:hover {
+.Menu--nav .menu > li:hover {
     text-decoration: underline;
 }
 
-.tp-leftarrow.tparrows.custom,.tp-rightarrow.tparrows.custom {
-    top: 0px !important;
+.tp-leftarrow.tparrows.custom, .tp-rightarrow.tparrows.custom {
+    top: 0 !important;
     transform: none !important;
     width: 50%;
     background: rgba(255, 255, 255, 0.8);
@@ -63,6 +61,7 @@ body {
 .YoutubeSlider--cont {
     white-space: nowrap;
     position: relative;
+    overflow: hidden;
 }
 
 .YoutubeSlider--slides {
@@ -70,11 +69,11 @@ body {
     display: inline-block;
     width: 100%;
     padding-bottom: 57%;
-    height: 0px;
+    height: 0;
     position: relative;
 }
 
-.YoutubeSlider--slides>iframe {
+.YoutubeSlider--slides > iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -82,3 +81,62 @@ body {
     height: 100%;
     bottom: 0;
     right: 0;
+}
+
+.YoutubeSlider--flechas {
+    position: absolute;
+    top: -1px;
+    width: 50%;
+    background: white;
+    height: 45px;
+    opacity: 0.6;
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.YoutubeSlider--flechas--prev {
+    left: 0;
+    background-image: url("../images/home/flecha-prev.png");
+}
+
+.YoutubeSlider--flechas--next {
+    right: 0;
+    background-image: url("../images/home/flecha-next.png");
+}
+
+.YoutubeSlider--flechas:hover {
+    opacity: 0.8;
+}
+
+.YoutubeSlider--slides--botones {
+    position: absolute;
+    bottom: 22px;
+    right: 14px;
+}
+
+.YoutubeSlider--slides--boton {
+    display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+    width: 200px;
+    background-image: url('../images/home/banner-botones.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.YoutubeSlider--slides--botones--discover {
+    width: 133px;
+    background-position: left center;
+}
+
+.YoutubeSlider--slides--botones--share {
+    width: 30px;
+    background-position: left -129px center;
+}
+
+.YoutubeSlider--slides--boton:hover {
+    background-color: white;
+    opacity: 1 !important;
+}
