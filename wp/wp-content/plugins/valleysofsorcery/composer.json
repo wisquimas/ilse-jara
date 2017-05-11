@@ -1,0 +1,15 @@
+{
+  "name": "wisquimas/valleysofsorcery",
+  "type": "wordpress-plugin",
+  "description": "Funciones para iniciar en gafa",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mario Sanzol",
+      "email": "wisquimas@gmail.com"
+    }
+  ],
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}

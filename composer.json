@@ -1,0 +1,30 @@
+{
+  "name": "wisquimas/wordpress-composer",
+  "description": "Instalacion completa de un sitio en wordpress",
+  "license": "MIT",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "phpconsole/phpconsole": "3.*",
+    "wpackagist-plugin/rest-api": "dev-master",
+    "wpackagist-plugin/wordpress-seo": "3.*",
+    "wisquimas/funciones-basicas" : "dev-master",
+    "wisquimas/wordpress-template" : "dev-master",
+    "wisquimas/valleysofsorcery" : "dev-master"
+  },
+  "extra": {
+    "wordpress-install-dir": "wp",
+    "installer-paths": {
+      "wp/wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    }
+  }
+}

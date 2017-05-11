@@ -1,0 +1,19 @@
+{
+  "name": "wisquimas/funciones-basicas",
+  "type": "wordpress-plugin",
+  "description": "Funciones para iniciar en gafa",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mario Sanzol",
+      "email": "wisquimas@gmail.com"
+    }
+  ],
+  "require": {
+    "composer/installers": "~1.0",
+    "johnpbloch/wordpress": "*"
+  },
+  "extra": {
+    "wordpress-install-dir": "wp"
+  }
+}

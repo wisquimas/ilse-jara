@@ -1,0 +1,514 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "b770d0216e085c05e3a31918b11f33be",
+    "packages": [
+        {
+            "name": "composer/installers",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/79ad876c7498c0bbfe7eed065b8651c93bfd6045",
+                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "MODX Evo",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Thelia",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "moodle",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "puppet",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "time": "2017-04-24T06:37:16+00:00"
+        },
+        {
+            "name": "johnpbloch/wordpress",
+            "version": "4.7.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johnpbloch/wordpress.git",
+                "reference": "ca36dbed576d21681efe92851f411ac2315a0ea5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/ca36dbed576d21681efe92851f411ac2315a0ea5",
+                "reference": "ca36dbed576d21681efe92851f411ac2315a0ea5",
+                "shasum": ""
+            },
+            "require": {
+                "johnpbloch/wordpress-core": "4.7.4.1",
+                "johnpbloch/wordpress-core-installer": "~0.2",
+                "php": ">=5.3.2"
+            },
+            "type": "package",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "WordPress Community",
+                    "homepage": "http://wordpress.org/about/"
+                }
+            ],
+            "description": "WordPress is web software you can use to create a beautiful website or blog.",
+            "homepage": "http://wordpress.org/",
+            "keywords": [
+                "blog",
+                "cms",
+                "wordpress"
+            ],
+            "time": "2017-05-01T23:34:21+00:00"
+        },
+        {
+            "name": "johnpbloch/wordpress-core",
+            "version": "4.7.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johnpbloch/wordpress-core.git",
+                "reference": "637b1c6e997b28bf8767e6c87611f869e12e246e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/637b1c6e997b28bf8767e6c87611f869e12e246e",
+                "reference": "637b1c6e997b28bf8767e6c87611f869e12e246e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "wordpress-core",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "WordPress Community",
+                    "homepage": "http://wordpress.org/about/"
+                }
+            ],
+            "description": "WordPress is web software you can use to create a beautiful website or blog.",
+            "homepage": "http://wordpress.org/",
+            "keywords": [
+                "blog",
+                "cms",
+                "wordpress"
+            ],
+            "time": "2017-05-01T23:28:59+00:00"
+        },
+        {
+            "name": "johnpbloch/wordpress-core-installer",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johnpbloch/wordpress-core-installer.git",
+                "reference": "a04c2c383ef13aae077f36799ed2eafdebd618d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core-installer/zipball/a04c2c383ef13aae077f36799ed2eafdebd618d2",
+                "reference": "a04c2c383ef13aae077f36799ed2eafdebd618d2",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "conflict": {
+                "composer/installers": "<1.0.6"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "johnpbloch\\Composer\\WordPressCorePlugin"
+            },
+            "autoload": {
+                "psr-0": {
+                    "johnpbloch\\Composer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "John P. Bloch",
+                    "email": "me@johnpbloch.com"
+                }
+            ],
+            "description": "A custom installer to handle deploying WordPress with composer",
+            "keywords": [
+                "wordpress"
+            ],
+            "time": "2015-06-11T15:15:30+00:00"
+        },
+        {
+            "name": "legierski/aes",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/legierski/AES.git",
+                "reference": "2318a7f1efe780e250cde21dd5dc74d5efdf9c93"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/legierski/AES/zipball/2318a7f1efe780e250cde21dd5dc74d5efdf9c93",
+                "reference": "2318a7f1efe780e250cde21dd5dc74d5efdf9c93",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "squizlabs/php_codesniffer": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Legierski\\AES": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Peter Legierski",
+                    "email": "peter@legierski.net",
+                    "homepage": "http://legierski.net"
+                }
+            ],
+            "description": "OpenSSL-compatible AES library",
+            "keywords": [
+                "CryptoJS",
+                "Gibberish AES",
+                "Rijndael",
+                "aes",
+                "decryption",
+                "encryption",
+                "mcrypt",
+                "openssl"
+            ],
+            "time": "2014-06-23T22:59:49+00:00"
+        },
+        {
+            "name": "phpconsole/phpconsole",
+            "version": "3.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpconsole/phpconsole.git",
+                "reference": "a957cbc1f0bc065f1f6fe028929f73c3053647f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpconsole/phpconsole/zipball/a957cbc1f0bc065f1f6fe028929f73c3053647f7",
+                "reference": "a957cbc1f0bc065f1f6fe028929f73c3053647f7",
+                "shasum": ""
+            },
+            "require": {
+                "legierski/aes": "0.1.*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.*",
+                "squizlabs/php_codesniffer": "*"
+            },
+            "suggest": {
+                "ext-openssl": "Allow AES-256 encryption of your data"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Phpconsole": "src/"
+                },
+                "files": [
+                    "src/functions/p.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Peter Legierski",
+                    "email": "peter@legierski.net",
+                    "homepage": "http://legierski.net"
+                }
+            ],
+            "description": "A detached logging facility for PHP to aid your daily development routine",
+            "homepage": "http://phpconsole.com",
+            "keywords": [
+                "console",
+                "debug",
+                "debugging",
+                "log",
+                "logging",
+                "online",
+                "php",
+                "phpconsole",
+                "web"
+            ],
+            "time": "2016-04-01T10:53:37+00:00"
+        },
+        {
+            "name": "wisquimas/funciones-basicas",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wisquimas/funciones-basicas.git",
+                "reference": "9fd1a67a3495e771d7046251e897b20a2d6db4e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wisquimas/funciones-basicas/zipball/9fd1a67a3495e771d7046251e897b20a2d6db4e2",
+                "reference": "9fd1a67a3495e771d7046251e897b20a2d6db4e2",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "johnpbloch/wordpress": "*"
+            },
+            "type": "wordpress-plugin",
+            "extra": {
+                "wordpress-install-dir": "wp"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mario Sanzol",
+                    "email": "wisquimas@gmail.com"
+                }
+            ],
+            "description": "Funciones para iniciar en gafa",
+            "time": "2017-05-11 14:43:54"
+        },
+        {
+            "name": "wisquimas/valleysofsorcery",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wisquimas/valleysofsorcery.git",
+                "reference": "78a8d8f1d1102c5043e2cf7c98762e63464d2d7a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wisquimas/valleysofsorcery/zipball/78a8d8f1d1102c5043e2cf7c98762e63464d2d7a",
+                "reference": "78a8d8f1d1102c5043e2cf7c98762e63464d2d7a",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mario Sanzol",
+                    "email": "wisquimas@gmail.com"
+                }
+            ],
+            "description": "Funciones para iniciar en gafa",
+            "time": "2017-05-11 14:51:38"
+        },
+        {
+            "name": "wisquimas/wordpress-template",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wisquimas/wordpress-template.git",
+                "reference": "bdf7d3ed26d2aa868373cdd4f7f691b6cb656e41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wisquimas/wordpress-template/zipball/bdf7d3ed26d2aa868373cdd4f7f691b6cb656e41",
+                "reference": "bdf7d3ed26d2aa868373cdd4f7f691b6cb656e41",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "wisquimas/funciones-basicas": "dev-master"
+            },
+            "type": "wordpress-theme",
+            "extra": {
+                "installer-paths": {
+                    "wp/wp-content/plugins/{$name}/": [
+                        "type:wordpress-plugin"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Plantilla inicial para Wordpress",
+            "time": "2017-05-11 15:02:51"
+        },
+        {
+            "name": "wpackagist-plugin/rest-api",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/rest-api/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/rest-api.zip?timestamp=1476885929",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/rest-api/",
+            "time": "2016-10-19T15:05:29+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/wordpress-seo",
+            "version": "3.9",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
+                "reference": "tags/3.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.3.9.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wordpress-seo/"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "wpackagist-plugin/rest-api": 20,
+        "wisquimas/funciones-basicas": 20,
+        "wisquimas/wordpress-template": 20,
+        "wisquimas/valleysofsorcery": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
