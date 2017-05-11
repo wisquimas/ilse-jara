@@ -36,7 +36,36 @@ const BannerHome = {
             BannerHome.slides.stop().hide(0);
             //Mostrar
             siguiente.stop().fadeIn(200);
+            BannerHome.ReproducirVideoYPausarDemas(siguiente);
         }
+    },
+    /**
+     * Pausar todos y reproducir este
+     * @param elemento
+     * @constructor
+     */
+    ReproducirVideoYPausarDemas(elemento){
+        //Pausar
+        let sliders = BannerHome.slides;
+        if (sliders.length) {
+            sliders.each(function (i, e) {
+                let idVideo = BannerHome.GetDataIdByObject($(e));
+                BannerHome.PausarVideo(idVideo);
+            })
+        }
+
+        //Reproducir
+        let idVideoActivado = BannerHome.GetDataIdByObject(elemento);
+        BannerHome.ReproducirVideo(idVideoActivado);
+    },
+    ReproducirVideo(idDelVideo){
+        eval('idDelVideo.pauseVideo()');
+    },
+    PausarVideo(idDelVideo){
+        eval('idDelVideo.playVideo()');
+    },
+    GetDataIdByObject(object){
+        return object.data('id');
     },
     /**
      * Recibe la siguiente amenidad a mostrar
