@@ -1,10 +1,18 @@
 import $ from 'jquery';
 
 const BannerHome = {
+    //Valores configurables
+    volumen: 70,
+    volumenApagado: 0,
+    volumenPrendido: 70,
+    //valores para no tocar
     flechas: $('.YoutubeSlider--flechas'),
     slides: $('.YoutubeSlider--slides'),
     indiceActual: null,
     maximo: 0,
+    iniciado: false,
+    botonMute: $('.YoutubeSlider--slides--botones--mute'),
+    muteado: false,
     init: () => {
         if (BannerHome.flechas.length) {
             BannerHome.configurar();
@@ -23,7 +31,22 @@ const BannerHome = {
             let IndiceNuevo = BannerHome.indiceActual + 1;
 
             BannerHome.MostrarBannerPorIndice(IndiceNuevo);
+        });
+        BannerHome.botonMute.on('click', (e) => {
+            e.preventDefault();
+            BannerHome.volumen = BannerHome.muteado ? BannerHome.volumenPrendido : BannerHome.volumenApagado;
+            BannerHome.muteado = !BannerHome.muteado;
+            BannerHome.SetearNuevoVolumen();
         })
+    },
+    SetearNuevoVolumen(){
+        let sliders = BannerHome.slides;
+        if (sliders.length) {
+            sliders.each(function (i, e) {
+                let idVideo = BannerHome.GetDataIdByObject($(e));
+                BannerHome.SetVideoVolumeToStaticValue(idVideo);
+            })
+        }
     },
     MostrarBannerPorIndice(index){
         let indiceLimpio = this.LimpiarIndice(index);
@@ -59,10 +82,16 @@ const BannerHome = {
         BannerHome.ReproducirVideo(idVideoActivado);
     },
     ReproducirVideo(idDelVideo){
-        eval('idDelVideo.pauseVideo()');
+        eval(idDelVideo + '.unMute()');
+        eval(idDelVideo + '.setVolume(' + BannerHome.volumen + ')');
+        eval(idDelVideo + '.seekTo(0)');
+        eval(idDelVideo + '.playVideo()');
     },
     PausarVideo(idDelVideo){
-        eval('idDelVideo.playVideo()');
+        eval(idDelVideo + '.pauseVideo()');
+    },
+    SetVideoVolumeToStaticValue(idDelVideo){
+        eval(idDelVideo + '.setVolume(' + BannerHome.volumen + ')');
     },
     GetDataIdByObject(object){
         return object.data('id');
@@ -91,7 +120,13 @@ const BannerHome = {
      * @constructor
      */
     IniciarBannerHome: () => {
-        BannerHome.MostrarBannerPorIndice(0);
+        try {
+            BannerHome.MostrarBannerPorIndice(0);
+        } catch (e) {
+            setTimeout(function () {
+                BannerHome.IniciarBannerHome();
+            }, 1000);
+        }
     }
 };
 

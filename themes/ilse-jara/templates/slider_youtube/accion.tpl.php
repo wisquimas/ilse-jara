@@ -8,9 +8,10 @@
  */
 ?>
 player_<?= $uid ?> = new YT.Player('player_<?= $uid ?>', {
-playerVars: {'autoplay': 0, 'controls': 1, 'autohide': 1, 'wmode': 'opaque'},
+playerVars: {'autoplay': 0, 'controls': 0, 'autohide': 0, 'wmode': 'opaque','loop' : 1,'volume':100},
 videoId: '<?= $id ?>',
 events: {
-'onReady': onPlayerReady
+'onReady': onPlayerReady,
+'onStateChange': onPlayerStateChange
 }
 });

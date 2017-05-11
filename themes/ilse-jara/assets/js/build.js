@@ -10339,10 +10339,18 @@ var _jquery2 = _interopRequireDefault(_jquery);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var BannerHome = {
+    //Valores configurables
+    volumen: 70,
+    volumenApagado: 0,
+    volumenPrendido: 70,
+    //valores para no tocar
     flechas: (0, _jquery2.default)('.YoutubeSlider--flechas'),
     slides: (0, _jquery2.default)('.YoutubeSlider--slides'),
     indiceActual: null,
     maximo: 0,
+    iniciado: false,
+    botonMute: (0, _jquery2.default)('.YoutubeSlider--slides--botones--mute'),
+    muteado: false,
     init: function init() {
         if (BannerHome.flechas.length) {
             BannerHome.configurar();
@@ -10363,6 +10371,21 @@ var BannerHome = {
 
             BannerHome.MostrarBannerPorIndice(IndiceNuevo);
         });
+        BannerHome.botonMute.on('click', function (e) {
+            e.preventDefault();
+            BannerHome.volumen = BannerHome.muteado ? BannerHome.volumenPrendido : BannerHome.volumenApagado;
+            BannerHome.muteado = !BannerHome.muteado;
+            BannerHome.SetearNuevoVolumen();
+        });
+    },
+    SetearNuevoVolumen: function SetearNuevoVolumen() {
+        var sliders = BannerHome.slides;
+        if (sliders.length) {
+            sliders.each(function (i, e) {
+                var idVideo = BannerHome.GetDataIdByObject((0, _jquery2.default)(e));
+                BannerHome.SetVideoVolumeToStaticValue(idVideo);
+            });
+        }
     },
     MostrarBannerPorIndice: function MostrarBannerPorIndice(index) {
         var indiceLimpio = this.LimpiarIndice(index);
@@ -10375,7 +10398,43 @@ var BannerHome = {
             BannerHome.slides.stop().hide(0);
             //Mostrar
             siguiente.stop().fadeIn(200);
+            BannerHome.ReproducirVideoYPausarDemas(siguiente);
         }
+    },
+
+    /**
+     * Pausar todos y reproducir este
+     * @param elemento
+     * @constructor
+     */
+    ReproducirVideoYPausarDemas: function ReproducirVideoYPausarDemas(elemento) {
+        //Pausar
+        var sliders = BannerHome.slides;
+        if (sliders.length) {
+            sliders.each(function (i, e) {
+                var idVideo = BannerHome.GetDataIdByObject((0, _jquery2.default)(e));
+                BannerHome.PausarVideo(idVideo);
+            });
+        }
+
+        //Reproducir
+        var idVideoActivado = BannerHome.GetDataIdByObject(elemento);
+        BannerHome.ReproducirVideo(idVideoActivado);
+    },
+    ReproducirVideo: function ReproducirVideo(idDelVideo) {
+        eval(idDelVideo + '.unMute()');
+        eval(idDelVideo + '.setVolume(' + BannerHome.volumen + ')');
+        eval(idDelVideo + '.seekTo(0)');
+        eval(idDelVideo + '.playVideo()');
+    },
+    PausarVideo: function PausarVideo(idDelVideo) {
+        eval(idDelVideo + '.pauseVideo()');
+    },
+    SetVideoVolumeToStaticValue: function SetVideoVolumeToStaticValue(idDelVideo) {
+        eval(idDelVideo + '.setVolume(' + BannerHome.volumen + ')');
+    },
+    GetDataIdByObject: function GetDataIdByObject(object) {
+        return object.data('id');
     },
 
     /**
@@ -10403,7 +10462,13 @@ var BannerHome = {
      * @constructor
      */
     IniciarBannerHome: function IniciarBannerHome() {
-        BannerHome.MostrarBannerPorIndice(0);
+        try {
+            BannerHome.MostrarBannerPorIndice(0);
+        } catch (e) {
+            setTimeout(function () {
+                BannerHome.IniciarBannerHome();
+            }, 1000);
+        }
     }
 };
 

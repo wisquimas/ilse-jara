@@ -29,4 +29,9 @@
     function onPlayerReady(event) {
         event.target.mute();
     }
+    function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.ENDED) {
+            event.target.playVideo();
+        }
+    }
 </script>

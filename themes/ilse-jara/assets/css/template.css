@@ -71,6 +71,7 @@ body {
     padding-bottom: 57%;
     height: 0;
     position: relative;
+    /* pointer-events: none; */
 }
 
 .YoutubeSlider--slides > iframe {
@@ -81,6 +82,7 @@ body {
     height: 100%;
     bottom: 0;
     right: 0;
+    pointer-events: none; */
 }
 
 .YoutubeSlider--flechas {
