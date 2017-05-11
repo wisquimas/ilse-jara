@@ -20,6 +20,7 @@ l  `  '  ! |  | /  \ ||     ||  :  | |  | |   |   ||  _  |/  \ |
     <?php
     etiquetas_og();
     ?>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,200i,300,400,800" rel="stylesheet">
     <!--suppress HtmlUnknownTarget -->
     <link type="text/css" rel="stylesheet" href="<?php plantilla(); ?>/style.css"/>
     <!--suppress HtmlUnknownTarget -->
@@ -43,3 +44,4 @@ l  `  '  ! |  | /  \ ||     ||  :  | |  | |   |   ||  _  |/  \ |
     <!-- Google Analytics -->
 </head>
 <body <?php body_class("normal"); ?>>
+<?= \IlseJara\Menu::Imprimir(); ?>

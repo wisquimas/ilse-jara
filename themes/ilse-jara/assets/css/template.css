@@ -1,1 +1,39 @@
 @import url("fonts.css");
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.Menu {
+    text-align: center;
+    padding: 38px 0;
+    background: white;
+    padding-bottom: 28px;
+}
+
+.contenedor {
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
+.Menu--nav .menu>li {
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 0 14px;
+    font-size: 16px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.Menu--nav .menu {
+    padding: 27px 0;
+    padding-bottom: 0;
+}
+
+.Menu--nav .menu>li.current-menu-item {
+    font-weight: 800;
+}
+
+.Menu--nav .menu>li:hover {
+    text-decoration: underline;
+}

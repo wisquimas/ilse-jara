@@ -168,3 +168,10 @@ if (!function_exists('eliminar')) {
 
     ;
 };
+
+/**
+ * Registramos los menus de navegacion
+ */
+register_nav_menus(array(
+    'navegador-principal' => 'Navegador principal',
+));
