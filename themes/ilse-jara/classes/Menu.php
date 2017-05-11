@@ -11,7 +11,7 @@ abstract class Menu
      *
      * @return string
      */
-    static public function Imprimir()
+    static public function ImprimirMenuHome()
     {
         return GafaTemplate::Imprimir('menu/body', array(
             'menu' => wp_nav_menu(array(

@@ -47,5 +47,4 @@ l  `  '  ! |  | /  \ ||     ||  :  | |  | |   |   ||  _  |/  \ |
             async='async'></script>
 </head>
 <body <?php body_class("normal"); ?>>
-<?= \IlseJara\Menu::Imprimir(); ?>
 <div class="contenedor">

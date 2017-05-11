@@ -39,15 +39,22 @@ $htmlSliders = function () use ($opciones) {
 
     return $respuesta;
 };
-
+/*
+ * Logica Colecciones
+ */
+$htmlColecciones = function () {
+    return 'hola';
+};
 /*****************************************************
  * Impresion
  ****************************************************/
 get_header();
 
 echo \Gafa\GafaTemplate::Imprimir('home/body', array(
-    'opciones'    => $opciones,
-    'htmlSliders' => $htmlSliders(),
+    'opciones'        => $opciones,
+    'menuHome'        => \IlseJara\Menu::ImprimirMenuHome(),
+    'htmlSliders'     => $htmlSliders(),
+    'htmlColecciones' => $htmlColecciones(),
 ));
 
 get_footer();
