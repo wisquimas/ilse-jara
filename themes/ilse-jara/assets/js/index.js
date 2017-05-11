@@ -8,14 +8,14 @@ import Alerta from './helpers/Alerta';
  * Aca se cargan los helpers o scripts que se necesiten
  */
 import IniciarWeb from './helpers/IniciarWeb';
-// import AjaxHelpers from './helpers/AjaxHelpers';
+import BannerHome from './helpers/BannerHome';
 
 /**
  * Inicio
  */
 
 IniciarWeb.init();
-// AjaxHelpers.init();
+BannerHome.init();
 
 /**
  * Seteo de globales
