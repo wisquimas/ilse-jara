@@ -8,13 +8,29 @@
  * @var string                $htmlColecciones
  */
 ?>
-<div class="Home">
-    <div class="Home--Sliders">
-        <?= $menuHome ?>
-        <?= $htmlSliders ?>
-    </div>
-    <div class="Home--Colecciones">
-        <div class="Home--titulo">Colecciones</div>
-        <?= $htmlColecciones ?>
-    </div>
+<div class="Home ParallaxEspecial">
+    <section class="Home--Sliders">
+        <div class="contenedor">
+            <?= $menuHome ?>
+            <?= $htmlSliders ?>
+        </div>
+    </section>
+    <section class="Home--Colecciones">
+        <div class="contenedor">
+            <div class="Home--titulo">Colecciones</div>
+            <?= $htmlColecciones ?>
+        </div>
+    </section>
+    <section class="Home--Colecciones">
+        <div class="contenedor">
+            <div class="Home--titulo">Colecciones</div>
+            <?= $htmlColecciones ?>
+        </div>
+    </section>
+    <section class="Home--Colecciones">
+        <div class="contenedor">
+            <div class="Home--titulo">Colecciones</div>
+            <?= $htmlColecciones ?>
+        </div>
+    </section>
 </div>
