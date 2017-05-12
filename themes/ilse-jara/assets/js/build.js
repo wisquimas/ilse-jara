@@ -10487,6 +10487,25 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var Coleccion = {
+    init: function init() {}
+};
+
+exports.default = Coleccion;
+
+},{"jquery":1}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var IniciarWeb = {
     iniciada: false,
     init: function init() {
@@ -10512,7 +10531,7 @@ var IniciarWeb = {
 
 exports.default = IniciarWeb;
 
-},{"jquery":1}],5:[function(require,module,exports){
+},{"jquery":1}],6:[function(require,module,exports){
 'use strict';
 
 var _Alerta = require('./helpers/Alerta');
@@ -10527,6 +10546,10 @@ var _BannerHome = require('./helpers/BannerHome');
 
 var _BannerHome2 = _interopRequireDefault(_BannerHome);
 
+var _Coleccion = require('./helpers/Coleccion');
+
+var _Coleccion2 = _interopRequireDefault(_Coleccion);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -10534,18 +10557,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 
 /**
+ * Estos son los que se cargan como globales
+ */
+//noinspection ES6UnusedImports
+_IniciarWeb2.default.init();
+
+/**
  * Aca se cargan los helpers o scripts que se necesiten
  */
-_IniciarWeb2.default.init(); /**
-                              * Estos son los que se cargan como globales
-                              */
-//noinspection ES6UnusedImports
 
 _BannerHome2.default.init();
+_Coleccion2.default.init();
 
 /**
  * Seteo de globales
  **/
 // window.AjaxHelpers = AjaxHelpers;
 
-},{"./helpers/Alerta":2,"./helpers/BannerHome":3,"./helpers/IniciarWeb":4}]},{},[5]);
+},{"./helpers/Alerta":2,"./helpers/BannerHome":3,"./helpers/Coleccion":4,"./helpers/IniciarWeb":5}]},{},[6]);

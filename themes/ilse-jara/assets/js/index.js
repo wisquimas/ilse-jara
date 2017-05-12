@@ -9,6 +9,7 @@ import Alerta from './helpers/Alerta';
  */
 import IniciarWeb from './helpers/IniciarWeb';
 import BannerHome from './helpers/BannerHome';
+import Coleccion from './helpers/Coleccion';
 
 /**
  * Inicio
@@ -16,6 +17,7 @@ import BannerHome from './helpers/BannerHome';
 
 IniciarWeb.init();
 BannerHome.init();
+Coleccion.init();
 
 /**
  * Seteo de globales
