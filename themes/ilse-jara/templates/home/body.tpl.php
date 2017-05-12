@@ -23,13 +23,13 @@
     </section>
     <section class="Home--Colecciones">
         <div class="contenedor">
-            <div class="Home--titulo">Colecciones</div>
+            <div class="Home--titulo">2</div>
             <?= $htmlColecciones ?>
         </div>
     </section>
     <section class="Home--Colecciones">
         <div class="contenedor">
-            <div class="Home--titulo">Colecciones</div>
+            <div class="Home--titulo">3</div>
             <?= $htmlColecciones ?>
         </div>
     </section>

@@ -3,6 +3,7 @@
 body {
     font-family: 'Raleway', sans-serif;
     /* background: white; */
+    overflow-x: hidden;
 }
 
 .Menu {
@@ -145,7 +146,7 @@ body {
     opacity: 1 !important;
 }
 
-.YoutubeSlider--slides--botones--share>div {
+.YoutubeSlider--slides--botones--share > div {
     opacity: 0 !important;
 }
 
@@ -163,15 +164,33 @@ body {
 }
 
 .Parallax--secciones {
-    max-height: 100vh;
+    height: 100vh;
     overflow: auto;
-    position: fixed;
+    position: relative;
     top: 100%;
     left: 0;
     right: 0;
     width: 100%;
+    z-index: 1;
+    border: 2px solid red;
 }
 
 .Parallax--secciones_activa {
-    top: 0;
+    margin-top: 100vh;
+    z-index: 2;
+}
+
+.Parallax--secciones_anterior {
+    bottom: 0 !important;
+    position: fixed;
+    top: auto !important;
+    pointer-events: none;
+}
+
+.Parallax--secciones:nth-child(1) {
+    /* margin-top: 0; */
+}
+
+.Parallax--secciones_siguiente {
+    pointer-events: none;
 }

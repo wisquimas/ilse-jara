@@ -38,6 +38,7 @@ l  `  '  ! |  | /  \ ||     ||  :  | |  | |   |   ||  _  |/  \ |
           media="screen"/>
     <!--suppress HtmlUnknownTarget -->
     <script type="text/javascript" src="<?php assets(); ?>/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="<?php assets(); ?>/js/vendor/jquery.inview-master/jquery.inview.js"></script>
 
     <!-- Comienza WP Head -->
     <?php wp_head(); ?>
