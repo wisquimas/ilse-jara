@@ -30,6 +30,8 @@
                     //Iniciamos
                     this.configurarSecciones();
                     this.Listeners();
+                    //Smooth
+                    this.SmothScroll.init();
                     //Marcamos elemento como iniciado
                     this.iniciado = true;
                 } else {
@@ -140,9 +142,18 @@
                 }
                 //Almacenamos en objeto
                 this.prevSeccion = seccion;
+            },
+            SmothScroll: {
+                init(){
+
+                }
             }
         };
-        ParallaxObject.init();
+        $(document).ready(function () {
+            setTimeout(function () {
+                ParallaxObject.init();
+            }, 2000)
+        });
     </script>
 </div>
 </body>
