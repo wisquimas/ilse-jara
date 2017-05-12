@@ -9,7 +9,7 @@
             cuerpo: $('.ParallaxEspecial'),//Elemento cuerpo del parallax
             anchoMinimo: 1100,//Ancho minimo para aplicar esto
             claseSecciones: 'Parallax--secciones',
-            tiempoMinimoEntreSecciones: 2,//Esto es el tiempo minimo que puede transcurrir entre un movimiento entre zonas
+            tiempoMinimoEntreSecciones: 200,//Esto es el tiempo minimo que puede transcurrir entre un movimiento entre zonas
 
             //propiedades
             secciones: null,
@@ -17,7 +17,7 @@
             nextSeccion: null,
             prevSeccion: null,
             iniciado: false,
-            timeParaImpedirError: 0,
+            timeParaImpedirError: new Date(),
             configurando: false,
             /**
              * Iniciado del elemento
@@ -57,20 +57,32 @@
              * -Cuando hay un resize
              */
             Listeners(){
-                var ParallaxObject = this;
-                $('.' + this.claseSecciones).bind('inview', function (event, visible, visiblePartX, visiblePartY) {
-                    var fechaActual = new Date();
-                    var diferencia = (fechaActual - ParallaxObject.timeParaImpedirError);
+                var ParallaxObject = this,
+                    secciones = $('.' + this.claseSecciones),
+                    $window = $(window);
+
+                secciones.on('mousewheel DOMMouseScroll', function (e) {
+                    var seccion = $(this),
+                        seccionHija = seccion.find('>div'),
+                        margenSuperior = parseInt(seccion.css('padding-top')),
+                        LlegamosAlSuperior = seccion.scrollTop() <= 0,
+                        LlegamosAlInferior = (seccion.scrollTop() + $window.outerHeight()) >= seccionHija.outerHeight() + margenSuperior,
+                        fechaActual = new Date(),
+                        diferencia = (fechaActual - ParallaxObject.timeParaImpedirError);
+
+//                    console.log(seccion.scrollTop(), $window.outerHeight(), margenSuperior, seccionHija.outerHeight());
+//                    console.log(margenSuperior, LlegamosAlSuperior, LlegamosAlInferior);
 
                     if (diferencia > ParallaxObject.tiempoMinimoEntreSecciones) {
                         ParallaxObject.timeParaImpedirError = fechaActual;
 
-                        var target = $(event.currentTarget);
-                        if (target.is('.Parallax--secciones_activa')) {
-                            if (visiblePartY === 'bottom') {
+                        if (seccion.is('.Parallax--secciones_activa')) {
+                            if (LlegamosAlInferior) {
                                 //Funcionamiento en bajada
+                                //console.log('----------------------CAMBIO A INFERIOR----------------------');
                                 ParallaxObject.activarSeccion(ParallaxObject.nextSeccion);
-                            } else if (visiblePartY === undefined) {
+                            } else if (LlegamosAlSuperior) {
+                                //console.log('----------------------CAMBIO A SUperior----------------------');
                                 //Funcionamiento en subida
                                 ParallaxObject.activarSeccion(ParallaxObject.prevSeccion);
                             }
@@ -89,7 +101,7 @@
                         this.currentSeccion = this.secciones.first();
                     }
                     this.secciones.each(function (i, seccion) {
-                        $(seccion).css('margin-top', (i * 100) + 'vh')
+                        $(seccion).css('padding-top', (i * 100) + 'vh')
                     });
 
                     this.secciones.addClass(this.claseSecciones);
@@ -111,6 +123,7 @@
                 seccion.removeClass('Parallax--secciones_siguiente');
                 seccion.removeClass('Parallax--secciones_anterior');
                 seccion.addClass('Parallax--secciones_activa');
+                seccion.css('padding-top', '100vh');
 
                 //Posicionamos siguiente
                 this.acomodarComoSiguiente(siguiente);
