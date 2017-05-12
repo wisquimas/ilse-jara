@@ -30,8 +30,6 @@
                     //Iniciamos
                     this.configurarSecciones();
                     this.Listeners();
-                    //Smooth
-                    this.SmothScroll.init();
                     //Marcamos elemento como iniciado
                     this.iniciado = true;
                 } else {
@@ -47,6 +45,11 @@
             DeleteEffect(){
                 var secciones = $('.' + this.claseSecciones);
                 secciones.removeClass(this.claseSecciones);
+                secciones.removeClass('Parallax--secciones_anterior');
+                secciones.removeClass('Parallax--secciones_activa');
+                secciones.removeClass('Parallax--secciones_siguiente');
+                secciones.off('mousewheel DOMMouseScroll');
+                secciones.removeAttr('style');
                 console.log('EXIT SISTEMA PARALLAX');
             },
             /**
@@ -155,17 +158,15 @@
                 }
                 //Almacenamos en objeto
                 this.prevSeccion = seccion;
-            },
-            SmothScroll: {
-                init(){
-
-                }
             }
         };
         $(document).ready(function () {
             setTimeout(function () {
                 ParallaxObject.init();
-            }, 2000)
+            }, 2000);
+            $(window).on('resize', function () {
+                ParallaxObject.init();
+            });
         });
     </script>
 </div>
