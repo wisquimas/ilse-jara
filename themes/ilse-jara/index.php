@@ -43,7 +43,18 @@ $htmlSliders = function () use ($opciones) {
  * Logica Colecciones
  */
 $htmlColecciones = function () {
-    return 'hola';
+    $html = '';
+    $colecciones = \IlseJara\Coleccion::Get(null, true);
+
+    if ($colecciones) {
+        foreach ($colecciones as $coleccion) {
+            $html .= \Gafa\GafaTemplate::Imprimir('coleccion/loopHome', array(
+                'coleccion' => $coleccion,
+            ));
+        }
+    }
+
+    return $html;
 };
 /*****************************************************
  * Impresion

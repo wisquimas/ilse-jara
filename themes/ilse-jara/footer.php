@@ -73,8 +73,9 @@
                         fechaActual = new Date(),
                         diferencia = (fechaActual - ParallaxObject.timeParaImpedirError);
 
-//                    console.log(seccion.scrollTop(), $window.outerHeight(), margenSuperior, seccionHija.outerHeight());
-//                    console.log(margenSuperior, LlegamosAlSuperior, LlegamosAlInferior);
+                    console.log(seccion);
+                    //console.log(seccion.scrollTop(), $window.outerHeight(), seccion.outerHeight(),seccion.outerHeight(), margenSuperior);
+                    console.log(margenSuperior, LlegamosAlSuperior, LlegamosAlInferior);
 
                     if (diferencia > ParallaxObject.tiempoMinimoEntreSecciones) {
                         ParallaxObject.timeParaImpedirError = fechaActual;
@@ -82,10 +83,10 @@
                         if (seccion.is('.Parallax--secciones_activa')) {
                             if (LlegamosAlInferior) {
                                 //Funcionamiento en bajada
-                                //console.log('----------------------CAMBIO A INFERIOR----------------------');
+                                console.log('----------------------CAMBIO A INFERIOR----------------------');
                                 ParallaxObject.activarSeccion(ParallaxObject.nextSeccion);
                             } else if (LlegamosAlSuperior) {
-                                //console.log('----------------------CAMBIO A SUperior----------------------');
+                                console.log('----------------------CAMBIO A SUperior----------------------');
                                 //Funcionamiento en subida
                                 ParallaxObject.activarSeccion(ParallaxObject.prevSeccion);
                             }
