@@ -71,7 +71,7 @@ body {
     white-space: normal;
     display: inline-block;
     width: 100%;
-    padding-bottom: 56.1%;
+    padding-bottom: 45.6%;
     height: 0;
     position: relative;
     /* pointer-events: none; */
@@ -213,11 +213,12 @@ body {
     float: left;
     width: 50%;
     background: red;
-    padding-bottom: 35%;
+    padding-bottom: 28.1%;
     height: 0;
     background-position: center;
     background-size: cover;
     display: inline-block;
+    opacity: 1 !important;
 }
 
 body.home {
