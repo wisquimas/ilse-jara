@@ -6,6 +6,7 @@
  * @var string                $menuHome
  * @var string                $htmlSliders
  * @var string                $htmlColecciones
+ * @var string                $htmlFashionLab
  */
 ?>
 <div class="Home ParallaxEspecial">
@@ -23,8 +24,8 @@
     </section>
     <section class="Home--Colecciones">
         <div class="contenedor">
-            <div class="Home--titulo">2</div>
-            2
+            <div class="Home--titulo">Fashion Lab</div>
+            <?= $htmlFashionLab; ?>
         </div>
     </section>
     <section class="Home--Colecciones">

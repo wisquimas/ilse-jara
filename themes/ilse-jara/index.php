@@ -1,7 +1,6 @@
 <?php
 $opciones = \IlseJara\HomeOptions::InstanceCachedLast();
 
-
 /*
  * Logica Sliders
  */
@@ -56,6 +55,12 @@ $htmlColecciones = function () {
 
     return $html;
 };
+/*
+ * Logica FashionLab
+ */
+$htmlFashionLab = function () {
+    return '';
+};
 /*****************************************************
  * Impresion
  ****************************************************/
@@ -66,6 +71,7 @@ echo \Gafa\GafaTemplate::Imprimir('home/body', array(
     'menuHome'        => \IlseJara\Menu::ImprimirMenuHome(),
     'htmlSliders'     => $htmlSliders(),
     'htmlColecciones' => $htmlColecciones(),
+    'htmlFashionLab'  => $htmlFashionLab(),
 ));
 
 get_footer();

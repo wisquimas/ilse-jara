@@ -207,6 +207,7 @@ body {
     box-sizing: content-box;
     overflow: hidden;
     clear: both;
+    /* background: white; */
 }
 
 .ColeccionEnHome {
@@ -219,8 +220,42 @@ body {
     background-size: cover;
     display: inline-block;
     opacity: 1 !important;
+    position: relative;
 }
 
 body.home {
     overflow: hidden;
+}
+
+.ColeccionEnHome--title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 82%;
+    display: block;
+    padding: 18px 35px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 200;
+    font-style: italic;
+    font-size: 64px;
+    z-index: 2;
+}
+
+.ColeccionEnHome_hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-position: center;
+    background-size: cover;
+    opacity: 0;
+    pointer-events: none;
+    transition: 1s opacity ease;
+}
+
+.ColeccionEnHome:hover .ColeccionEnHome_hover {
+    opacity: 1;
 }
