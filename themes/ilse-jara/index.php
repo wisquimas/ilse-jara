@@ -79,6 +79,14 @@ $htmlFashionLab = function () {
  */
 $htmlUniverso = function () {
     $html = '';
+    $universo = \IlseJara\Universo::Get(null, true);
+    if (count($universo)) {
+        foreach ($universo as $redSocial) {
+            $html .= \Gafa\GafaTemplate::Imprimir('universo/loop', array(
+                'universo' => $redSocial,
+            ));
+        }
+    }
 
     return $html;
 };

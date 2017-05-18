@@ -17,6 +17,7 @@ body {
     max-width: 1600px;
     position: relative;
     z-index: 1;
+    overflow: hidden;
 }
 
 .Menu--nav .menu > li {
@@ -315,3 +316,35 @@ body.home {
 }
 
 .Parallax--secciones_activa>div {cursor: auto;}
+
+.Universo--loop {
+    float: left;
+    width: 33.33%;
+    padding-bottom: 33.33%;
+    background-color: red;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.Universo--loop:hover {
+    opacity: 1;
+}
+
+.Universo--loop--hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: 1s opacity ease;
+}
+
+.Universo--loop:hover
+ .Universo--loop--hover {
+    opacity: 1;
+}
