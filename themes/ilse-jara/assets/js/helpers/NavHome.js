@@ -77,7 +77,6 @@ const NavHome = {
                 //Baja
                 for (posicionActual; posicionActual < posicionParaIr; posicionActual++) {
                     let $seccionActual = $(secciones[posicionActual]);
-                    console.log('Bajando Seccion');
                     $seccionActual.stop().scrollTop(99999999999);
                 }
                 ParallaxObject.activarSeccion(seccionTarget);
@@ -87,8 +86,18 @@ const NavHome = {
             });
         } else {
             //Sube
-            //todo Hacer subida
-
+            //todo Probar
+            $('.Parallax--secciones').fadeOut(200, function () {
+                //Baja
+                for (posicionActual; posicionActual > posicionParaIr; posicionActual--) {
+                    let $seccionActual = $(secciones[posicionActual]);
+                    $seccionActual.stop().scrollTop(0);
+                }
+                ParallaxObject.activarSeccion(seccionTarget);
+                NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
+                    $('.Parallax--secciones').fadeIn(500);
+                });
+            });
         }
     },
     ScrollAEstaMismaSeccion(seccion, altura, cb){
