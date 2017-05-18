@@ -5,27 +5,27 @@ const NavHome = {
         //Integramos Listeners
         this.Listeners();
     },
+    CheckIrASeccion(hash){
+        let seccion = $(hash);
+
+        if (seccion.length && seccion.is('.Parallax--secciones')) {
+            //Sistema parallax
+            NavHome.IrASeccion(seccion);
+        } else if (seccion.length) {
+            //Responsivo
+            let altura = seccion.offset().top;
+            $('body,html').stop().animate({
+                'scrollTop': altura
+            }, 500);
+        }
+    },
     Listeners(){
         //Clicks Menu
         $('.Menu--nav a[href]').on('click', function (e) {
             let hash = $(this).attr("href");
             hash = NavHome.ClearHash(hash);
             if (hash) {
-                let seccion = $(hash);
-
-                if (seccion.length && seccion.is('.Parallax--secciones')) {
-                    //Sistema parallax
-                    NavHome.IrASeccion(seccion);
-                    return false;
-                } else if (seccion.length) {
-                    //Responsivo
-                    let altura = seccion.offset().top;
-                    $('body,html').stop().animate({
-                        'scrollTop': altura
-                    }, 500);
-
-                    return false;
-                }
+                NavHome.CheckIrASeccion(hash);
             }
         });
         //Clicks para subir a la seccion anterior
@@ -73,7 +73,7 @@ const NavHome = {
             //Misma seccion
             NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura);
         } else if (direccion === 1) {
-            $('.Parallax--secciones').fadeOut(200, function () {
+            $('.Parallax--secciones').stop().fadeOut(200, function () {
                 //Baja
                 for (posicionActual; posicionActual < posicionParaIr; posicionActual++) {
                     let $seccionActual = $(secciones[posicionActual]);
@@ -83,13 +83,13 @@ const NavHome = {
                 let altura = seccionTarget.find('>div').position().top;
 
                 NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
-                    $('.Parallax--secciones').fadeIn(500);
+                    $('.Parallax--secciones').stop().fadeIn(500);
                 });
             });
         } else {
             //Sube
             //todo Probar
-            $('.Parallax--secciones').fadeOut(200, function () {
+            $('.Parallax--secciones').stop().fadeOut(200, function () {
                 //Baja
                 for (posicionActual; posicionActual > posicionParaIr; posicionActual--) {
                     let $seccionActual = $(secciones[posicionActual]);
@@ -97,7 +97,7 @@ const NavHome = {
                 }
                 ParallaxObject.activarSeccion(seccionTarget);
                 NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
-                    $('.Parallax--secciones').fadeIn(500);
+                    $('.Parallax--secciones').stop().fadeIn(500);
                 });
             });
         }

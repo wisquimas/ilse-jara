@@ -18,18 +18,24 @@ var ParallaxObject = {
      */
     init() {
         var anchoVista = $(window).outerWidth();
-        $('body,html').scrollTop(0);//Posicionamos hasta arriba
-
+        $('body,html').stop().scrollTop(0);//Posicionamos hasta arriba
+        //Reset
+        this.DeleteEffect();
+        //Aplicamos los cambios
         if (this.cuerpo.length && anchoVista >= this.anchoMinimo) {
             //Iniciamos
             this.configurarSecciones();
             this.Listeners();
             //Marcamos elemento como iniciado
             this.iniciado = true;
-        } else {
-            //Eliminamos
-            this.DeleteEffect();
         }
+        this.CheckIfHashInUrl();
+    },
+    CheckIfHashInUrl(){
+        var hash = document.location.hash;
+        hash = window.NavHome.ClearHash(hash);
+
+        window.NavHome.CheckIrASeccion(hash);
     },
     /**
      * Resetea el efecto
@@ -38,6 +44,7 @@ var ParallaxObject = {
      */
     DeleteEffect(){
         var secciones = $('.' + this.claseSecciones);
+        secciones.stop();
         secciones.removeClass(this.claseSecciones);
         secciones.removeClass('Parallax--secciones_anterior');
         secciones.removeClass('Parallax--secciones_activa');

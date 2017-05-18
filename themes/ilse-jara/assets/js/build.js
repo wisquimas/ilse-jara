@@ -10549,27 +10549,27 @@ var NavHome = {
         //Integramos Listeners
         this.Listeners();
     },
+    CheckIrASeccion: function CheckIrASeccion(hash) {
+        var seccion = (0, _jquery2.default)(hash);
+
+        if (seccion.length && seccion.is('.Parallax--secciones')) {
+            //Sistema parallax
+            NavHome.IrASeccion(seccion);
+        } else if (seccion.length) {
+            //Responsivo
+            var altura = seccion.offset().top;
+            (0, _jquery2.default)('body,html').stop().animate({
+                'scrollTop': altura
+            }, 500);
+        }
+    },
     Listeners: function Listeners() {
         //Clicks Menu
         (0, _jquery2.default)('.Menu--nav a[href]').on('click', function (e) {
             var hash = (0, _jquery2.default)(this).attr("href");
             hash = NavHome.ClearHash(hash);
             if (hash) {
-                var seccion = (0, _jquery2.default)(hash);
-
-                if (seccion.length && seccion.is('.Parallax--secciones')) {
-                    //Sistema parallax
-                    NavHome.IrASeccion(seccion);
-                    return false;
-                } else if (seccion.length) {
-                    //Responsivo
-                    var altura = seccion.offset().top;
-                    (0, _jquery2.default)('body,html').stop().animate({
-                        'scrollTop': altura
-                    }, 500);
-
-                    return false;
-                }
+                NavHome.CheckIrASeccion(hash);
             }
         });
         //Clicks para subir a la seccion anterior
@@ -10617,7 +10617,7 @@ var NavHome = {
             //Misma seccion
             NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura);
         } else if (direccion === 1) {
-            (0, _jquery2.default)('.Parallax--secciones').fadeOut(200, function () {
+            (0, _jquery2.default)('.Parallax--secciones').stop().fadeOut(200, function () {
                 //Baja
                 for (posicionActual; posicionActual < posicionParaIr; posicionActual++) {
                     var $seccionActual = (0, _jquery2.default)(secciones[posicionActual]);
@@ -10627,13 +10627,13 @@ var NavHome = {
                 var altura = seccionTarget.find('>div').position().top;
 
                 NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
-                    (0, _jquery2.default)('.Parallax--secciones').fadeIn(500);
+                    (0, _jquery2.default)('.Parallax--secciones').stop().fadeIn(500);
                 });
             });
         } else {
             //Sube
             //todo Probar
-            (0, _jquery2.default)('.Parallax--secciones').fadeOut(200, function () {
+            (0, _jquery2.default)('.Parallax--secciones').stop().fadeOut(200, function () {
                 //Baja
                 for (posicionActual; posicionActual > posicionParaIr; posicionActual--) {
                     var $seccionActual = (0, _jquery2.default)(secciones[posicionActual]);
@@ -10641,7 +10641,7 @@ var NavHome = {
                 }
                 ParallaxObject.activarSeccion(seccionTarget);
                 NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
-                    (0, _jquery2.default)('.Parallax--secciones').fadeIn(500);
+                    (0, _jquery2.default)('.Parallax--secciones').stop().fadeIn(500);
                 });
             });
         }
@@ -10712,6 +10712,6 @@ _NavHome2.default.init();
 /**
  * Seteo de globales
  **/
-// window.AjaxHelpers = AjaxHelpers;
+window.NavHome = _NavHome2.default;
 
 },{"./helpers/Alerta":2,"./helpers/BannerHome":3,"./helpers/Coleccion":4,"./helpers/IniciarWeb":5,"./helpers/NavHome":6}]},{},[7]);

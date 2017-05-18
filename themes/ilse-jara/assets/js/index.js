@@ -24,4 +24,4 @@ NavHome.init();
 /**
  * Seteo de globales
  **/
-// window.AjaxHelpers = AjaxHelpers;
+window.NavHome = NavHome;
