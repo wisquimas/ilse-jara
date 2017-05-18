@@ -22,7 +22,7 @@
             <?= $htmlColecciones ?>
         </div>
     </section>
-    <section class="Home--Colecciones">
+    <section class="Home--FashionLab">
         <div class="contenedor">
             <div class="Home--titulo">Fashion Lab</div>
             <?= $htmlFashionLab; ?>

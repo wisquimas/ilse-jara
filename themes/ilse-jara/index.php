@@ -59,7 +59,18 @@ $htmlColecciones = function () {
  * Logica FashionLab
  */
 $htmlFashionLab = function () {
-    return '';
+    $html = '';
+    $fashionLabs = \IlseJara\FashionLab::Get(null, true);
+
+    if (count($fashionLabs)) {
+        foreach ($fashionLabs as $lab) {
+            $html .= \Gafa\GafaTemplate::Imprimir('fashion-lab/loop', array(
+                'fashion' => $lab,
+            ));
+        }
+    }
+
+    return $html;
 };
 /*****************************************************
  * Impresion
