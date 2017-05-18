@@ -60,7 +60,9 @@ $htmlColecciones = function () {
  */
 $htmlFashionLab = function () {
     $html = '';
-    $fashionLabs = \IlseJara\FashionLab::Get(null, true);
+    $fashionLabs = \IlseJara\FashionLab::Get(array(
+        'posts_per_page' => 3,
+    ), true);
 
     if (count($fashionLabs)) {
         foreach ($fashionLabs as $lab) {
@@ -69,6 +71,14 @@ $htmlFashionLab = function () {
             ));
         }
     }
+
+    return $html;
+};
+/*
+ * Lógica Universo
+ */
+$htmlUniverso = function () {
+    $html = '';
 
     return $html;
 };
@@ -83,6 +93,7 @@ echo \Gafa\GafaTemplate::Imprimir('home/body', array(
     'htmlSliders'     => $htmlSliders(),
     'htmlColecciones' => $htmlColecciones(),
     'htmlFashionLab'  => $htmlFashionLab(),
+    'htmlUniverso'    => $htmlUniverso(),
 ));
 
 get_footer();

@@ -10534,6 +10534,132 @@ exports.default = IniciarWeb;
 },{"jquery":1}],6:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var NavHome = {
+    init: function init() {
+        //Integramos Listeners
+        this.Listeners();
+    },
+    Listeners: function Listeners() {
+        //Clicks Menu
+        (0, _jquery2.default)('.Menu--nav a[href]').on('click', function (e) {
+            var hash = (0, _jquery2.default)(this).attr("href");
+            hash = NavHome.ClearHash(hash);
+            if (hash) {
+                var seccion = (0, _jquery2.default)(hash);
+
+                if (seccion.length && seccion.is('.Parallax--secciones')) {
+                    //Sistema parallax
+                    NavHome.IrASeccion(seccion);
+                    return false;
+                } else if (seccion.length) {
+                    //Responsivo
+                    var altura = seccion.offset().top;
+                    (0, _jquery2.default)('body,html').stop().animate({
+                        'scrollTop': altura
+                    }, 500);
+
+                    return false;
+                }
+            }
+        });
+        //Clicks para subir a la seccion anterior
+        (0, _jquery2.default)('.ParallaxEspecial').on('click', '.Parallax--secciones_activa', function (e) {
+            var $target = (0, _jquery2.default)(e.target);
+            if ($target.is('.Parallax--secciones_activa')) {
+                $target.stop().animate({
+                    'scrollTop': 0
+                }, 500, function () {
+                    var anterior = $target.prev('.Parallax--secciones');
+                    if (anterior.length) {
+                        ParallaxObject.activarSeccion(anterior);
+                    }
+                });
+            }
+        });
+    },
+    IrASeccion: function IrASeccion(seccionTarget) {
+        var hija = seccionTarget.find('>div');
+        var altura = hija.offset().top; //Altura que debemos saltarnos para llegar al lugar indicado
+
+        var secciones = (0, _jquery2.default)('.Parallax--secciones');
+        var seccionActual = (0, _jquery2.default)('.Parallax--secciones_activa');
+
+        var posicionParaIr = secciones.index(seccionTarget);
+        var posicionActual = secciones.index(seccionActual);
+        var direccion = null; //1 baja , -1 sube, 0 misma seccion
+
+        /*
+         Comprobamos la direccion
+         */
+        if (posicionActual > posicionParaIr) {
+            //Mismo
+            direccion = 0;
+        } else if (posicionActual < posicionParaIr) {
+            //Baja
+            direccion = 1;
+        } else {
+            //Sube
+            direccion = -1;
+        }
+        console.log(seccionTarget, posicionActual, posicionParaIr, direccion);
+
+        if (direccion === 0) {
+            //Misma seccion
+            NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura);
+        } else if (direccion === 1) {
+            (0, _jquery2.default)('.Parallax--secciones').fadeOut(200, function () {
+                //Baja
+                for (posicionActual; posicionActual < posicionParaIr; posicionActual++) {
+                    var $seccionActual = (0, _jquery2.default)(secciones[posicionActual]);
+                    console.log('Bajando Seccion');
+                    $seccionActual.stop().scrollTop(99999999999);
+                }
+                ParallaxObject.activarSeccion(seccionTarget);
+                NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
+                    (0, _jquery2.default)('.Parallax--secciones').fadeIn(500);
+                });
+            });
+        } else {
+            //Sube
+            //todo Hacer subida
+
+        }
+    },
+    ScrollAEstaMismaSeccion: function ScrollAEstaMismaSeccion(seccion, altura, cb) {
+        seccion.stop().animate({
+            'scrollTop': altura
+        }, 500, function () {
+            if (cb) {
+                cb();
+            }
+        });
+    },
+    ClearHash: function ClearHash(string) {
+        if (string.indexOf('#') >= 0) {
+            var data = string.split('#');
+            if (data.length) {
+                string = data[1];
+                return '#' + string;
+            }
+        }
+    }
+};
+
+exports.default = NavHome;
+
+},{"jquery":1}],7:[function(require,module,exports){
+'use strict';
+
 var _Alerta = require('./helpers/Alerta');
 
 var _Alerta2 = _interopRequireDefault(_Alerta);
@@ -10550,6 +10676,10 @@ var _Coleccion = require('./helpers/Coleccion');
 
 var _Coleccion2 = _interopRequireDefault(_Coleccion);
 
+var _NavHome = require('./helpers/NavHome');
+
+var _NavHome2 = _interopRequireDefault(_NavHome);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -10557,21 +10687,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 
 /**
- * Estos son los que se cargan como globales
- */
-//noinspection ES6UnusedImports
-_IniciarWeb2.default.init();
-
-/**
  * Aca se cargan los helpers o scripts que se necesiten
  */
+_IniciarWeb2.default.init(); /**
+                              * Estos son los que se cargan como globales
+                              */
+//noinspection ES6UnusedImports
 
 _BannerHome2.default.init();
 _Coleccion2.default.init();
+_NavHome2.default.init();
 
 /**
  * Seteo de globales
  **/
 // window.AjaxHelpers = AjaxHelpers;
 
-},{"./helpers/Alerta":2,"./helpers/BannerHome":3,"./helpers/Coleccion":4,"./helpers/IniciarWeb":5}]},{},[6]);
+},{"./helpers/Alerta":2,"./helpers/BannerHome":3,"./helpers/Coleccion":4,"./helpers/IniciarWeb":5,"./helpers/NavHome":6}]},{},[7]);

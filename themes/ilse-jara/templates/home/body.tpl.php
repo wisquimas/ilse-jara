@@ -7,6 +7,7 @@
  * @var string                $htmlSliders
  * @var string                $htmlColecciones
  * @var string                $htmlFashionLab
+ * @var string                $htmlUniverso
  */
 ?>
 <div class="Home ParallaxEspecial">
@@ -16,22 +17,34 @@
             <?= $htmlSliders ?>
         </div>
     </section>
-    <section class="Home--Colecciones">
+    <section id="colecciones" class="Home--Colecciones">
         <div class="contenedor">
             <div class="Home--titulo">Colecciones</div>
             <?= $htmlColecciones ?>
         </div>
     </section>
-    <section class="Home--FashionLab">
+    <section id="fashion-lab" class="Home--FashionLab">
         <div class="contenedor">
             <div class="Home--titulo">Fashion Lab</div>
             <?= $htmlFashionLab; ?>
         </div>
     </section>
-    <section class="Home--Colecciones">
+    <section id="universo" class="Home--Colecciones">
         <div class="contenedor">
-            <div class="Home--titulo">3</div>
-            3
+            <div class="Home--titulo">Universo</div>
+            <?= $htmlUniverso ?>
+        </div>
+    </section>
+    <section id="testimonio" class="Home--Colecciones">
+        <div class="contenedor">
+            <div class="Home--titulo">Testimonio</div>
+            <?= '' ?>
+        </div>
+    </section>
+    <section id="contacto" class="Home--Colecciones">
+        <div class="contenedor">
+            <div class="Home--titulo">Contacto</div>
+            <?= '' ?>
         </div>
     </section>
 </div>

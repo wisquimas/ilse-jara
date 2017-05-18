@@ -33,7 +33,7 @@ body {
 }
 
 .Menu--nav .menu > li.current-menu-item {
-    font-weight: 800;
+    /* font-weight: 800; */
 }
 
 .Menu--nav .menu > li:hover {
@@ -178,6 +178,7 @@ body {
     padding-top: 100vh;
     z-index: 2;
     position: relative;
+    cursor: n-resize;
 }
 
 .Parallax--secciones_anterior {
@@ -201,7 +202,7 @@ body {
     /* overflow: auto; */
 }
 
-.Parallax--secciones>.contenedor {
+.Parallax--secciones > .contenedor {
     min-height: 100vh;
     padding-bottom: 10px;
     box-sizing: content-box;
@@ -270,7 +271,9 @@ body.home {
     cursor: pointer;
 }
 
-.FashionLab--loop:hover {opacity: 1 !important;}
+.FashionLab--loop:hover {
+    opacity: 1 !important;
+}
 
 .FashionLab--loop--imagen {
     position: absolute;
@@ -302,4 +305,13 @@ body.home {
     left: 50%;
 }
 
-.FashionLab--loop:hover .FashionLab--loop--imagen {opacity: 0.5;}
+.FashionLab--loop:hover .FashionLab--loop--imagen {
+    opacity: 0.5;
+}
+
+.YoutubeSlider--slides--botones--mute {
+    background-position: right center;
+    width: 30px;
+}
+
+.Parallax--secciones_activa>div {cursor: auto;}
