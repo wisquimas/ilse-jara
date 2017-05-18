@@ -10589,7 +10589,7 @@ var NavHome = {
     },
     IrASeccion: function IrASeccion(seccionTarget) {
         var hija = seccionTarget.find('>div');
-        var altura = hija.offset().top; //Altura que debemos saltarnos para llegar al lugar indicado
+        var altura = hija.position().top; //Altura que debemos saltarnos para llegar al lugar indicado
 
         var secciones = (0, _jquery2.default)('.Parallax--secciones');
         var seccionActual = (0, _jquery2.default)('.Parallax--secciones_activa');
@@ -10621,18 +10621,29 @@ var NavHome = {
                 //Baja
                 for (posicionActual; posicionActual < posicionParaIr; posicionActual++) {
                     var $seccionActual = (0, _jquery2.default)(secciones[posicionActual]);
-                    console.log('Bajando Seccion');
                     $seccionActual.stop().scrollTop(99999999999);
                 }
                 ParallaxObject.activarSeccion(seccionTarget);
+                var altura = seccionTarget.find('>div').position().top;
+
                 NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
                     (0, _jquery2.default)('.Parallax--secciones').fadeIn(500);
                 });
             });
         } else {
             //Sube
-            //todo Hacer subida
-
+            //todo Probar
+            (0, _jquery2.default)('.Parallax--secciones').fadeOut(200, function () {
+                //Baja
+                for (posicionActual; posicionActual > posicionParaIr; posicionActual--) {
+                    var $seccionActual = (0, _jquery2.default)(secciones[posicionActual]);
+                    $seccionActual.stop().scrollTop(0);
+                }
+                ParallaxObject.activarSeccion(seccionTarget);
+                NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
+                    (0, _jquery2.default)('.Parallax--secciones').fadeIn(500);
+                });
+            });
         }
     },
     ScrollAEstaMismaSeccion: function ScrollAEstaMismaSeccion(seccion, altura, cb) {

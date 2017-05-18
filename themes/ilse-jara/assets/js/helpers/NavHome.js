@@ -45,7 +45,7 @@ const NavHome = {
     },
     IrASeccion(seccionTarget){
         let hija = seccionTarget.find('>div');
-        let altura = hija.offset().top;//Altura que debemos saltarnos para llegar al lugar indicado
+        let altura = hija.position().top;//Altura que debemos saltarnos para llegar al lugar indicado
 
         let secciones = $('.Parallax--secciones');
         let seccionActual = $('.Parallax--secciones_activa');
@@ -80,6 +80,8 @@ const NavHome = {
                     $seccionActual.stop().scrollTop(99999999999);
                 }
                 ParallaxObject.activarSeccion(seccionTarget);
+                let altura = seccionTarget.find('>div').position().top;
+
                 NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
                     $('.Parallax--secciones').fadeIn(500);
                 });
