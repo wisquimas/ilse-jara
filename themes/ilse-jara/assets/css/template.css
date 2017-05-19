@@ -321,7 +321,6 @@ body.home {
     float: left;
     width: 33.33%;
     padding-bottom: 33.33%;
-    background-color: red;
     display: block;
     background-size: cover;
     background-position: center;
@@ -347,4 +346,36 @@ body.home {
 .Universo--loop:hover
  .Universo--loop--hover {
     opacity: 1;
+}
+
+.Testimonio--loop {
+    display: block;
+    float: left;
+    width: 33%;
+    padding-bottom: 47%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.Testimonio--loop--header {
+    position: absolute;
+    bottom: 22px;
+    left: 11%;
+    right: 17%;
+    background: rgba(255, 255, 255, 0.54);
+    padding: 25px 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.Testimonio--loop--header--cite {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.Testimonio--loop--header--title {
+    font-size: 13px;
+    margin-bottom: 14px;
 }

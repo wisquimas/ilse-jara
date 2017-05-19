@@ -90,6 +90,24 @@ $htmlUniverso = function () {
 
     return $html;
 };
+/*
+ * Lógica Testimonio
+ */
+$htmlTestimonio = function () {
+    $html = '';
+    $testimonios = \IlseJara\Testimonio::Get(array(
+        'posts_per_page' => 3,
+    ), true);
+    if (count($testimonios)) {
+        foreach ($testimonios as $testimonio) {
+            $html .= \Gafa\GafaTemplate::Imprimir('testimonio/loop', array(
+                'testimonio' => $testimonio,
+            ));
+        }
+    }
+
+    return $html;
+};
 /*****************************************************
  * Impresion
  ****************************************************/
@@ -102,6 +120,7 @@ echo \Gafa\GafaTemplate::Imprimir('home/body', array(
     'htmlColecciones' => $htmlColecciones(),
     'htmlFashionLab'  => $htmlFashionLab(),
     'htmlUniverso'    => $htmlUniverso(),
+    'htmlTestimonio'  => $htmlTestimonio(),
 ));
 
 get_footer();

@@ -8,6 +8,7 @@
  * @var string                $htmlColecciones
  * @var string                $htmlFashionLab
  * @var string                $htmlUniverso
+ * @var string                $htmlTestimonio
  */
 ?>
 <div class="Home ParallaxEspecial">
@@ -38,7 +39,7 @@
     <section id="testimonio" class="Home--Colecciones">
         <div class="contenedor">
             <div class="Home--titulo">Testimonio</div>
-            <?= '' ?>
+            <?= $htmlTestimonio ?>
         </div>
     </section>
     <section id="contacto" class="Home--Colecciones">
