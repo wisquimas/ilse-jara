@@ -10659,8 +10659,12 @@ var _FormsHelper2 = _interopRequireDefault(_FormsHelper);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Contacto = {
+    selectores: (0, _jquery2.default)('.Contacto--selector--select'),
+    ventana: (0, _jquery2.default)('.Contacto--ventana--body'),
     form: (0, _jquery2.default)('.Contacto--form'),
     boton: (0, _jquery2.default)('.Contacto--form--enviar'),
+    cerrar: (0, _jquery2.default)('.Contacto--ventana--cerrar'),
+    tipo: (0, _jquery2.default)('#Contacto--form--tipo'),
     init: function init() {
         if (this.form.length) {
             //Iniciamos Helper
@@ -10668,7 +10672,34 @@ var Contacto = {
             this.Listeners();
         }
     },
+    SetTipoContacto: function SetTipoContacto(valor) {
+        (0, _jquery2.default)('.Contacto--ventana--title').text(valor);
+        this.tipo.val(valor);
+    },
+    Abrir: function Abrir() {
+        this.ventana.stop().fadeIn(200);
+    },
+    Cerrar: function Cerrar() {
+        this.ventana.stop().fadeOut(200);
+    },
     Listeners: function Listeners() {
+        /*
+         Selectores
+         */
+        this.selectores.on('click', function () {
+            var valor = (0, _jquery2.default)(this).text();
+            Contacto.SetTipoContacto(valor);
+            Contacto.Abrir();
+        });
+        /*
+         Cierre
+         */
+        this.cerrar.on('click', function () {
+            Contacto.Cerrar();
+        });
+        /*
+         Envio
+         */
         this.boton.on('click', function (e) {
             e.preventDefault();
             var $form = Contacto.form;
@@ -10679,7 +10710,7 @@ var Contacto = {
                 funcion: "EnviarFormularioContacto",
                 attr: $form.serialize()
             }, function (data) {
-                console.log(data);
+                Contacto.Cerrar();
             });
         });
     }

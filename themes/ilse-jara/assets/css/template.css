@@ -209,7 +209,7 @@ body {
     box-sizing: content-box;
     overflow: hidden;
     clear: both;
-    /* background: white; */
+    background: white;
 }
 
 .ColeccionEnHome {
@@ -411,6 +411,7 @@ body.home {
     z-index: 9;
     padding-top: 131px;
     background: white;
+    display: none;
 }
 
 .Contacto--ventana {

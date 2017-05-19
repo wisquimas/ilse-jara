@@ -11,6 +11,7 @@
             <div class="Contacto--ventana--cerrar">x</div>
             <div class="Contacto--ventana--title">Presupuesto</div>
             <form action="" class="Contacto--form">
+                <input type="hidden" name="tipo" id="Contacto--form--tipo"/>
                 <div class="Contacto--form--label Contacto--form--label--email">
                     <label for="contacto-email">Mail</label>
                     <div class="Contacto--form--input--cont">
