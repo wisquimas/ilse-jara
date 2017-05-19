@@ -47,5 +47,6 @@ l  `  '  ! |  | /  \ ||     ||  :  | |  | |   |   ||  _  |/  \ |
             src='//platform-api.sharethis.com/js/sharethis.js#property=5914db8b8415370011847de9&product=custom-share-buttons'
             async='async'></script>
 </head>
-<body <?php body_class("normal"); ?>>
+<body <?php body_class("normal"); ?> onbeforeunload="window.Cargando.iniciar()">
+<div id="cargando" class="cover"></div>
 <div class="contenedor">

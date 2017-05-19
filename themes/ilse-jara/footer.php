@@ -1,4 +1,3 @@
-<div id="cargando" class="cover"></div>
 </div>
 <div id="w_f">
     <?php wp_footer(); ?>

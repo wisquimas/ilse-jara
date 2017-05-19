@@ -145,7 +145,7 @@ div#aceptar_pregunta_gafa {
     bottom: 0;
     right: 0;
     z-index: 999;
-    background-color: rgba(255, 255, 255, 0.8);
+    background: white url("assets/images/logo-carga.png") no-repeat center;
 }
 
 /*ALIGN VERTICAL----------------------------------------------------------*/

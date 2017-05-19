@@ -76,35 +76,29 @@ const NavHome = {
         } else if (direccion === 1) {
             //Baja
             Cargando.iniciar();
-            $('.Parallax--secciones').stop().fadeOut(200, function () {
-                for (posicionActual; posicionActual < posicionParaIr; posicionActual++) {
-                    let $seccionActual = $(secciones[posicionActual]);
-                    $seccionActual.stop().scrollTop(99999999999);
-                }
-                ParallaxObject.activarSeccion(seccionTarget);
-                let altura = seccionTarget.find('>div').position().top;//Altura que debemos saltarnos para llegar al lugar indicado
+            for (posicionActual; posicionActual < posicionParaIr; posicionActual++) {
+                let $seccionActual = $(secciones[posicionActual]);
+                $seccionActual.stop().scrollTop(99999999999);
+            }
+            ParallaxObject.activarSeccion(seccionTarget);
+            let altura = seccionTarget.find('>div').position().top;//Altura que debemos saltarnos para llegar al lugar indicado
 
-                NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
-                    $('.Parallax--secciones').stop().fadeIn(500);
-                    Cargando.borrar();
-                });
+            NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
+                Cargando.borrar();
             });
         } else {
             //Sube
             Cargando.iniciar();
-            $('.Parallax--secciones').stop().fadeOut(200, function () {
-                for (posicionActual; posicionActual >= posicionParaIr; posicionActual--) {
-                    let $seccionActual = $(secciones[posicionActual]);
-                    $seccionActual.stop().scrollTop(0);
-                }
-                ParallaxObject.activarSeccion(seccionTarget);
-                let altura = hija.offset().top;//Altura que debemos saltarnos para llegar al lugar indicado
-                console.log(seccionTarget, posicionActual, posicionParaIr, direccion, altura);
+            for (posicionActual; posicionActual >= posicionParaIr; posicionActual--) {
+                let $seccionActual = $(secciones[posicionActual]);
+                $seccionActual.stop().scrollTop(0);
+            }
+            ParallaxObject.activarSeccion(seccionTarget);
+            let altura = hija.offset().top;//Altura que debemos saltarnos para llegar al lugar indicado
+            console.log(seccionTarget, posicionActual, posicionParaIr, direccion, altura);
 
-                NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
-                    $('.Parallax--secciones').stop().fadeIn(500);
-                    Cargando.borrar();
-                });
+            NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
+                Cargando.borrar();
             });
         }
     },
@@ -113,7 +107,7 @@ const NavHome = {
             'scrollTop': altura
         }, 500, function () {
             if (cb) {
-                cb();
+                cb()
             }
         })
     },
