@@ -12,16 +12,15 @@ function EnviarFormularioContacto($data = '')
 {
     global $mensaje;
     parse_str($data, $informacionFormulario);
-    $htmlMensaje = '';
 
     $opcionesGenerales = \IlseJara\HomeOptions::InstanceCachedLast();
     $mailContacto = $opcionesGenerales->contacto_email;
-
-
-    foreach ($informacionFormulario as $key => $value) {
-        $htmlMensaje .= "<strong>{$key}:</strong>{$value} <br>";
-    }
     $mails = $mailContacto;
+
+
+    $htmlMensaje = \Gafa\GafaTemplate::Imprimir('email/contacto', array(
+        'informacionFormulario' => $informacionFormulario,
+    ));
 
     $headers = array('Content-Type: text/html; charset=UTF-8');
     $mail_Enviado = wp_mail($mails, 'Mensaje de Contacto', $htmlMensaje, $headers);

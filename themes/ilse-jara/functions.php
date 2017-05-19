@@ -175,3 +175,17 @@ if (!function_exists('eliminar')) {
 register_nav_menus(array(
     'navegador-principal' => 'Navegador principal',
 ));
+
+function mailtrap($phpmailer)
+{
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'smtp.mailtrap.io';
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Port = 2525;
+    $phpmailer->Username = '05e086b2452ef1';
+    $phpmailer->Password = 'a9148145740a1e';
+}
+
+if (DESARROLLO) {
+    add_action('phpmailer_init', 'mailtrap');
+}
