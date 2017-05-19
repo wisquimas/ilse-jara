@@ -108,6 +108,12 @@ $htmlTestimonio = function () {
 
     return $html;
 };
+/*
+ * Lógica Contacto
+ */
+$htmlContacto = function () {
+    return \Gafa\GafaTemplate::Imprimir('contacto/form');
+};
 /*****************************************************
  * Impresion
  ****************************************************/
@@ -121,6 +127,7 @@ echo \Gafa\GafaTemplate::Imprimir('home/body', array(
     'htmlFashionLab'  => $htmlFashionLab(),
     'htmlUniverso'    => $htmlUniverso(),
     'htmlTestimonio'  => $htmlTestimonio(),
+    'htmlContacto'    => $htmlContacto(),
 ));
 
 get_footer();
