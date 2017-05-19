@@ -12,6 +12,7 @@ import BannerHome from './helpers/BannerHome';
 import Coleccion from './helpers/Coleccion';
 import NavHome from './helpers/NavHome';
 import Contacto from './helpers/Contacto';
+import Cargando from './helpers/Cargando';
 
 /**
  * Inicio
@@ -27,3 +28,4 @@ Contacto.init();
  * Seteo de globales
  **/
 window.NavHome = NavHome;
+window.Cargando = Cargando;

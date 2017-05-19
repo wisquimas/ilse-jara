@@ -10852,6 +10852,10 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _Cargando = require('./Cargando');
+
+var _Cargando2 = _interopRequireDefault(_Cargando);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var NavHome = {
@@ -10875,7 +10879,7 @@ var NavHome = {
     },
     Listeners: function Listeners() {
         //Clicks Menu
-        (0, _jquery2.default)('.Menu--nav a[href]').on('click', function (e) {
+        (0, _jquery2.default)('.Menu--nav a[href],.Footer--derecho a[href]').on('click', function (e) {
             var hash = (0, _jquery2.default)(this).attr("href");
             hash = NavHome.ClearHash(hash);
             if (hash) {
@@ -10899,7 +10903,6 @@ var NavHome = {
     },
     IrASeccion: function IrASeccion(seccionTarget) {
         var hija = seccionTarget.find('>div');
-        var altura = hija.position().top; //Altura que debemos saltarnos para llegar al lugar indicado
 
         var secciones = (0, _jquery2.default)('.Parallax--secciones');
         var seccionActual = (0, _jquery2.default)('.Parallax--secciones_activa');
@@ -10912,46 +10915,52 @@ var NavHome = {
          Comprobamos la direccion
          */
         if (posicionActual > posicionParaIr) {
-            //Mismo
-            direccion = 0;
+            //Sube
+            direccion = -1;
         } else if (posicionActual < posicionParaIr) {
             //Baja
             direccion = 1;
         } else {
-            //Sube
-            direccion = -1;
+            //Mismo
+            direccion = 0;
         }
-        console.log(seccionTarget, posicionActual, posicionParaIr, direccion);
 
         if (direccion === 0) {
             //Misma seccion
+            var altura = hija.offset().top; //Altura que debemos saltarnos para llegar al lugar indicado
+            altura += seccionTarget.scrollTop();
             NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura);
         } else if (direccion === 1) {
+            //Baja
+            _Cargando2.default.iniciar();
             (0, _jquery2.default)('.Parallax--secciones').stop().fadeOut(200, function () {
-                //Baja
                 for (posicionActual; posicionActual < posicionParaIr; posicionActual++) {
                     var $seccionActual = (0, _jquery2.default)(secciones[posicionActual]);
                     $seccionActual.stop().scrollTop(99999999999);
                 }
                 ParallaxObject.activarSeccion(seccionTarget);
-                var altura = seccionTarget.find('>div').position().top;
+                var altura = seccionTarget.find('>div').position().top; //Altura que debemos saltarnos para llegar al lugar indicado
 
                 NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
                     (0, _jquery2.default)('.Parallax--secciones').stop().fadeIn(500);
+                    _Cargando2.default.borrar();
                 });
             });
         } else {
             //Sube
-            //todo Probar
+            _Cargando2.default.iniciar();
             (0, _jquery2.default)('.Parallax--secciones').stop().fadeOut(200, function () {
-                //Baja
-                for (posicionActual; posicionActual > posicionParaIr; posicionActual--) {
+                for (posicionActual; posicionActual >= posicionParaIr; posicionActual--) {
                     var $seccionActual = (0, _jquery2.default)(secciones[posicionActual]);
                     $seccionActual.stop().scrollTop(0);
                 }
                 ParallaxObject.activarSeccion(seccionTarget);
+                var altura = hija.offset().top; //Altura que debemos saltarnos para llegar al lugar indicado
+                console.log(seccionTarget, posicionActual, posicionParaIr, direccion, altura);
+
                 NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
                     (0, _jquery2.default)('.Parallax--secciones').stop().fadeIn(500);
+                    _Cargando2.default.borrar();
                 });
             });
         }
@@ -10978,7 +10987,7 @@ var NavHome = {
 
 exports.default = NavHome;
 
-},{"jquery":1}],11:[function(require,module,exports){
+},{"./Cargando":5,"jquery":1}],11:[function(require,module,exports){
 'use strict';
 
 var _Alerta = require('./helpers/Alerta');
@@ -11005,6 +11014,10 @@ var _Contacto = require('./helpers/Contacto');
 
 var _Contacto2 = _interopRequireDefault(_Contacto);
 
+var _Cargando = require('./helpers/Cargando');
+
+var _Cargando2 = _interopRequireDefault(_Cargando);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -11012,14 +11025,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 
 /**
- * Estos son los que se cargan como globales
- */
-//noinspection ES6UnusedImports
-_IniciarWeb2.default.init();
-
-/**
  * Aca se cargan los helpers o scripts que se necesiten
  */
+_IniciarWeb2.default.init(); /**
+                              * Estos son los que se cargan como globales
+                              */
+//noinspection ES6UnusedImports
 
 _BannerHome2.default.init();
 _Coleccion2.default.init();
@@ -11030,5 +11041,6 @@ _Contacto2.default.init();
  * Seteo de globales
  **/
 window.NavHome = _NavHome2.default;
+window.Cargando = _Cargando2.default;
 
-},{"./helpers/Alerta":3,"./helpers/BannerHome":4,"./helpers/Coleccion":6,"./helpers/Contacto":7,"./helpers/IniciarWeb":9,"./helpers/NavHome":10}]},{},[11]);
+},{"./helpers/Alerta":3,"./helpers/BannerHome":4,"./helpers/Cargando":5,"./helpers/Coleccion":6,"./helpers/Contacto":7,"./helpers/IniciarWeb":9,"./helpers/NavHome":10}]},{},[11]);

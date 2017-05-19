@@ -532,3 +532,57 @@ body.home {
     background: black;
     color: white;
 }
+
+.Footer--izquierdo {
+    text-transform: uppercase;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    line-height: initial;
+    padding-left: 56px;
+    font-size: 28px;
+    padding-top: 45px;
+    font-weight: 200;
+}
+
+#Footer>.contenedor {
+    position: relative;
+    height: 167px;
+    line-height: 167px;
+}
+
+#Footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #222222;
+    right: 0;
+}
+
+.Footer--derecho {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 19px;
+    padding-right: 37px;
+    font-weight: 200;
+}
+
+.Footer--derecho li {
+    display: inline-block;
+}
+
+.Footer--derecho li ul {
+    display: none;
+}
+
+.Footer--derecho li::after {
+    content: '-';
+    margin-left: 4px;
+}
+
+.Footer--derecho li:last-child::after {
+    display: none;
+}

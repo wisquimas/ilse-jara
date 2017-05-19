@@ -128,6 +128,7 @@ echo \Gafa\GafaTemplate::Imprimir('home/body', array(
     'htmlUniverso'    => $htmlUniverso(),
     'htmlTestimonio'  => $htmlTestimonio(),
     'htmlContacto'    => $htmlContacto(),
+    'htmlFooter'      => \IlseJara\Footer::Imprimir(),
 ));
 
 get_footer();

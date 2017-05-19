@@ -17,6 +17,7 @@ var ParallaxObject = {
      * Iniciado del elemento
      */
     init() {
+        window.Cargando.iniciar();
         var anchoVista = $(window).outerWidth();
         $('body,html').stop().scrollTop(0);//Posicionamos hasta arriba
         //Reset
@@ -30,6 +31,7 @@ var ParallaxObject = {
             this.iniciado = true;
         }
         this.CheckIfHashInUrl();
+        window.Cargando.borrar();
     },
     CheckIfHashInUrl(){
         var hash = document.location.hash;
@@ -119,6 +121,8 @@ var ParallaxObject = {
 
         //reseteamos
         this.secciones.removeClass('Parallax--secciones_activa');
+        this.secciones.removeClass('Parallax--secciones_siguiente');
+        this.secciones.removeClass('Parallax--secciones_anterior');
 
         //Activamos
         seccion.removeClass('Parallax--secciones_siguiente');
@@ -158,6 +162,7 @@ var ParallaxObject = {
         this.prevSeccion = seccion;
     }
 };
+//Iniciamos Ocultando
 $(document).ready(function () {
     setTimeout(function () {
         ParallaxObject.init();

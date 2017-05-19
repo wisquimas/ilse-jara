@@ -10,6 +10,7 @@
  * @var string                $htmlUniverso
  * @var string                $htmlTestimonio
  * @var string                $htmlContacto
+ * @var string                $htmlFooter
  */
 ?>
 <div class="Home ParallaxEspecial">
@@ -47,6 +48,7 @@
         <div class="contenedor">
             <div class="Home--titulo">Contacto</div>
             <?= $htmlContacto ?>
+            <?= $htmlFooter ?>
         </div>
     </section>
 </div>

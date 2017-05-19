@@ -1,4 +1,5 @@
-import $ from 'jquery';
+import $ from 'jquery'
+import Cargando from './Cargando'
 
 const NavHome = {
     init(){
@@ -21,7 +22,7 @@ const NavHome = {
     },
     Listeners(){
         //Clicks Menu
-        $('.Menu--nav a[href]').on('click', function (e) {
+        $('.Menu--nav a[href],.Footer--derecho a[href]').on('click', function (e) {
             let hash = $(this).attr("href");
             hash = NavHome.ClearHash(hash);
             if (hash) {
@@ -45,7 +46,6 @@ const NavHome = {
     },
     IrASeccion(seccionTarget){
         let hija = seccionTarget.find('>div');
-        let altura = hija.position().top;//Altura que debemos saltarnos para llegar al lugar indicado
 
         let secciones = $('.Parallax--secciones');
         let seccionActual = $('.Parallax--secciones_activa');
@@ -58,46 +58,52 @@ const NavHome = {
          Comprobamos la direccion
          */
         if (posicionActual > posicionParaIr) {
-            //Mismo
-            direccion = 0;
+            //Sube
+            direccion = -1;
         } else if (posicionActual < posicionParaIr) {
             //Baja
             direccion = 1;
         } else {
-            //Sube
-            direccion = -1;
+            //Mismo
+            direccion = 0;
         }
-        console.log(seccionTarget, posicionActual, posicionParaIr, direccion);
 
         if (direccion === 0) {
             //Misma seccion
+            let altura = hija.offset().top;//Altura que debemos saltarnos para llegar al lugar indicado
+            altura += seccionTarget.scrollTop();
             NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura);
         } else if (direccion === 1) {
+            //Baja
+            Cargando.iniciar();
             $('.Parallax--secciones').stop().fadeOut(200, function () {
-                //Baja
                 for (posicionActual; posicionActual < posicionParaIr; posicionActual++) {
                     let $seccionActual = $(secciones[posicionActual]);
                     $seccionActual.stop().scrollTop(99999999999);
                 }
                 ParallaxObject.activarSeccion(seccionTarget);
-                let altura = seccionTarget.find('>div').position().top;
+                let altura = seccionTarget.find('>div').position().top;//Altura que debemos saltarnos para llegar al lugar indicado
 
                 NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
                     $('.Parallax--secciones').stop().fadeIn(500);
+                    Cargando.borrar();
                 });
             });
         } else {
             //Sube
-            //todo Probar
+            Cargando.iniciar();
             $('.Parallax--secciones').stop().fadeOut(200, function () {
-                //Baja
-                for (posicionActual; posicionActual > posicionParaIr; posicionActual--) {
+                for (posicionActual; posicionActual >= posicionParaIr; posicionActual--) {
                     let $seccionActual = $(secciones[posicionActual]);
                     $seccionActual.stop().scrollTop(0);
                 }
                 ParallaxObject.activarSeccion(seccionTarget);
+                let altura = hija.offset().top;//Altura que debemos saltarnos para llegar al lugar indicado
+                console.log(seccionTarget, posicionActual, posicionParaIr, direccion, altura);
+
                 NavHome.ScrollAEstaMismaSeccion(seccionTarget, altura, function () {
                     $('.Parallax--secciones').stop().fadeIn(500);
+                    Cargando.borrar();
                 });
             });
         }
