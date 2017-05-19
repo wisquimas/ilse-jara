@@ -10256,6 +10256,112 @@ return jQuery;
 },{}],2:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _Cargando = require('./Cargando');
+
+var _Cargando2 = _interopRequireDefault(_Cargando);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var AjaxHelpers = {
+    ajax_GF: null,
+    plantillaUrl: null,
+    init: function init() {
+        this.plantillaUrl = gafacore ? gafacore.plantilla : null;
+    },
+
+    /**
+     * Automaticamente imprime un ajax en un recipiente
+     * @param data Esto se manda asi: {funcion:'',attr:''}
+     * @param recipiente Selector donde queremos poner la info
+     * @param callback
+     * @constructor
+     */
+    AjaxEnRecipiente: function do_proceso(data, recipiente, callback) {
+        var AjaxHelper = this;
+        _Cargando2.default.iniciar();
+        recipiente = (0, _jquery2.default)(recipiente);
+        data.ajax_gafa = true;
+
+        if (AjaxHelper.ajax_GF) AjaxHelper.ajax_GF.abort();
+        AjaxHelper.ajax_GF = _jquery2.default.post(AjaxHelper.plantillaUrl + '/procesos/do_action.php', data).done(function (d) {
+            var info = JSON.parse(d);
+            if (!info || !info.ok) {
+                alert(info.mensaje);
+                return;
+            }
+            recipiente.html(info.data);
+
+            if (callback) callback();
+        }).always(function () {
+            _Cargando2.default.borrar();
+        });
+    },
+    /**
+     * Automaticamente imprime un ajax en un recipiente
+     * @param data Esto se manda asi: {funcion:'',attr:''}
+     * @param callback
+     * @param proceso Aca definiremos si queremos correr un nuevo proceso
+     * @constructor
+     */
+    RequestAjax: function RequestAjax(data, callback, proceso) {
+        var AjaxHelper = this;
+        _Cargando2.default.iniciar();
+        data.ajax_gafa = true;
+
+        if (AjaxHelper.ajax_GF) AjaxHelper.ajax_GF.abort();
+        AjaxHelper.ajax_GF = _jquery2.default.post(AjaxHelper.plantillaUrl + '/procesos/do_action.php', data).done(function (d) {
+            var info = JSON.parse(d);
+            if (!info || !info.ok) {
+                alert(info.mensaje);
+                return null;
+            } else {
+                if (info.mensaje) {
+                    alert(info.mensaje, 'mensaje');
+                }
+                if (proceso) {
+                    AjaxHelper.AjaxEnRecipiente(proceso[0], proceso[1], callback);
+                } else if (callback) {
+                    callback(info.data);
+                }
+            }
+        }).always(function () {
+            _Cargando2.default.borrar();
+        });
+    },
+    AppendHtml: function AppendHtml(recipiente, data, callback, proceso) {
+        var AjaxHelper = this;
+        _Cargando2.default.iniciar();
+        recipiente = (0, _jquery2.default)(recipiente);
+        data.ajax_gafa = true;
+
+        AjaxHelper.ajax_GF = _jquery2.default.post(AjaxHelper.plantillaUrl + '/procesos/do_action.php', data).done(function (d) {
+            var info = JSON.parse(d);
+            if (!info || !info.ok) {
+                alert(info.mensaje);
+                return;
+            }
+            recipiente.append(info.data);
+
+            if (callback) callback();
+        }).always(function () {
+            _Cargando2.default.borrar();
+        });
+    }
+};
+
+exports.default = AjaxHelpers;
+
+},{"./Cargando":5,"jquery":1}],3:[function(require,module,exports){
+'use strict';
+
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
@@ -10325,7 +10431,7 @@ var funcionElementoError = function funcionElementoError() {
 });
 /*ERRROR GAFA FIN--------------------------------------------------------------------*/
 
-},{"jquery":1}],3:[function(require,module,exports){
+},{"jquery":1}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10474,7 +10580,45 @@ var BannerHome = {
 
 exports.default = BannerHome;
 
-},{"jquery":1}],4:[function(require,module,exports){
+},{"jquery":1}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var Cargando = {
+  iniciar: function iniciar(id) {
+    if (id) {
+      if ($('#' + id).length < 1) {
+        $('body').append('<div id="' + id + '" class="cover" style="display:none;"></div>');
+        $('#' + id).fadeIn();
+      }
+    } else {
+      if ($('#cargando').length < 1) {
+        $('body').append('<div id="cargando" class="cover" style="display:none;"></div>');
+        $('#cargando').fadeIn();
+      }
+    }
+  },
+  borrar: function borrar(id) {
+    if (id) {
+      if ($('#' + id).length >= 0) {
+        $('#' + id).fadeOut('fast', function () {
+          $('#' + id).remove();
+        });
+      }
+    } else {
+      if ($('#cargando').length >= 0) {
+        $('#cargando').fadeOut('fast', function () {
+          $('#cargando').remove();
+        });
+      }
+    }
+  }
+};
+exports.default = Cargando;
+
+},{}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10493,7 +10637,142 @@ var Coleccion = {
 
 exports.default = Coleccion;
 
-},{"jquery":1}],5:[function(require,module,exports){
+},{"jquery":1}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _AjaxHelpers = require('./AjaxHelpers');
+
+var _AjaxHelpers2 = _interopRequireDefault(_AjaxHelpers);
+
+var _FormsHelper = require('./FormsHelper');
+
+var _FormsHelper2 = _interopRequireDefault(_FormsHelper);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Contacto = {
+    form: (0, _jquery2.default)('.Contacto--form'),
+    boton: (0, _jquery2.default)('.Contacto--form--enviar'),
+    init: function init() {
+        if (this.form.length) {
+            //Iniciamos Helper
+            _AjaxHelpers2.default.init();
+            this.Listeners();
+        }
+    },
+    Listeners: function Listeners() {
+        this.boton.on('click', function (e) {
+            e.preventDefault();
+            var $form = Contacto.form;
+            if (!_FormsHelper2.default.check_formularios($form)) {
+                return null;
+            }
+            _AjaxHelpers2.default.RequestAjax({
+                funcion: "EnviarFormularioContacto",
+                attr: $form.serialize()
+            }, function (data) {
+                console.log(data);
+            });
+        });
+    }
+};
+
+exports.default = Contacto;
+
+},{"./AjaxHelpers":2,"./FormsHelper":8,"jquery":1}],8:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var HelperForms = {
+  check_formularios: function check_formularios(formulario) {
+    var ok = true;
+    var inputs = formulario.find('input:not(".no_obligatorio"),select:not(".no_obligatorio"),textarea:not(".no_obligatorio")');
+
+    inputs.each(function (i, e) {
+      if ((0, _jquery2.default)(e).val() == '' || (0, _jquery2.default)(e).val() == undefined) {
+        (0, _jquery2.default)(e).addClass('con_error');
+        ok = false;
+      } else {
+        (0, _jquery2.default)(e).removeClass('con_error');
+      }
+    });
+    if (!ok) {
+      alert('Completa todos los campos del formulario marcados');
+      return ok;
+    }
+    var numeros = formulario.find('[type="number"]');
+    if (numeros.length) {
+      /*SON NUMEROS?*/
+      numeros.each(function (i, e) {
+        if (isNaN((0, _jquery2.default)(e).val())) {
+          (0, _jquery2.default)(e).addClass('con_error');
+          ok = false;
+        } else {
+          (0, _jquery2.default)(e).removeClass('con_error');
+        }
+      });
+      if (!ok) {
+        alert('Los campos marcados en rojo deben de ser numéricos');
+        return ok;
+      }
+    }
+    /*MAILS------------------------------------*/
+    var mails = formulario.find('[type="email"]');
+    mails.each(function (i, e) {
+      if (!HelperForms.isValidEmailAddress((0, _jquery2.default)(e).val())) {
+        (0, _jquery2.default)(e).addClass('con_error');
+        ok = false;
+      } else {
+        (0, _jquery2.default)(e).removeClass('con_error');
+      }
+    });
+    if (!ok) {
+      alert('Escribe un correo electrónico válido');
+      return ok;
+    }
+    /*SIZE----------------------------*/
+    var size = formulario.find('[size]');
+    size.each(function (i, e) {
+      if ((0, _jquery2.default)(e).val().length != (0, _jquery2.default)(e).attr('size')) {
+        (0, _jquery2.default)(e).addClass('con_error');
+        ok = false;
+      } else {
+        (0, _jquery2.default)(e).removeClass('con_error');
+      }
+    });
+    if (!ok) {
+      alert('Los campos requeridos no tienen el tamaño necesario para continuar');
+      return ok;
+    }
+    return ok;
+  },
+  isValidEmailAddress: function isValidEmailAddress(emailAddress) {
+    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    return pattern.test(emailAddress);
+  }
+}; /**
+    * Helper para formularios
+    */
+exports.default = HelperForms;
+
+},{"jquery":1}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10531,7 +10810,7 @@ var IniciarWeb = {
 
 exports.default = IniciarWeb;
 
-},{"jquery":1}],6:[function(require,module,exports){
+},{"jquery":1}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10668,7 +10947,7 @@ var NavHome = {
 
 exports.default = NavHome;
 
-},{"jquery":1}],7:[function(require,module,exports){
+},{"jquery":1}],11:[function(require,module,exports){
 'use strict';
 
 var _Alerta = require('./helpers/Alerta');
@@ -10691,6 +10970,10 @@ var _NavHome = require('./helpers/NavHome');
 
 var _NavHome2 = _interopRequireDefault(_NavHome);
 
+var _Contacto = require('./helpers/Contacto');
+
+var _Contacto2 = _interopRequireDefault(_Contacto);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -10698,20 +10981,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 
 /**
+ * Estos son los que se cargan como globales
+ */
+//noinspection ES6UnusedImports
+_IniciarWeb2.default.init();
+
+/**
  * Aca se cargan los helpers o scripts que se necesiten
  */
-_IniciarWeb2.default.init(); /**
-                              * Estos son los que se cargan como globales
-                              */
-//noinspection ES6UnusedImports
 
 _BannerHome2.default.init();
 _Coleccion2.default.init();
 _NavHome2.default.init();
+_Contacto2.default.init();
 
 /**
  * Seteo de globales
  **/
 window.NavHome = _NavHome2.default;
 
-},{"./helpers/Alerta":2,"./helpers/BannerHome":3,"./helpers/Coleccion":4,"./helpers/IniciarWeb":5,"./helpers/NavHome":6}]},{},[7]);
+},{"./helpers/Alerta":3,"./helpers/BannerHome":4,"./helpers/Coleccion":6,"./helpers/Contacto":7,"./helpers/IniciarWeb":9,"./helpers/NavHome":10}]},{},[11]);

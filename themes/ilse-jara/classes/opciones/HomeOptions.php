@@ -7,6 +7,7 @@ class HomeOptions extends GafaObject
     const PostType = 'homeoptions';
 
     public $sliders = array();
+    public $contacto_email = '';
 
     /**
      * Seteamos las opciones
@@ -26,6 +27,10 @@ class HomeOptions extends GafaObject
             array(
                 'propiedad'      => 'sliders', //Propiedad interna
                 'customFunction' => static::FuncionDeGrupo('slider'), //Funcion callback
+            ),
+            array(
+                'propiedad' => 'contacto_email', //Propiedad interna
+                'meta_slug' => 'contacto_email', //meta slug referencia de la db
             ),
         );
     }

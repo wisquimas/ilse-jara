@@ -11,6 +11,7 @@ import IniciarWeb from './helpers/IniciarWeb';
 import BannerHome from './helpers/BannerHome';
 import Coleccion from './helpers/Coleccion';
 import NavHome from './helpers/NavHome';
+import Contacto from './helpers/Contacto';
 
 /**
  * Inicio
@@ -20,6 +21,7 @@ IniciarWeb.init();
 BannerHome.init();
 Coleccion.init();
 NavHome.init();
+Contacto.init();
 
 /**
  * Seteo de globales
