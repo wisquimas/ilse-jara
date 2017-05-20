@@ -48,5 +48,5 @@ l  `  '  ! |  | /  \ ||     ||  :  | |  | |   |   ||  _  |/  \ |
             async='async'></script>
 </head>
 <body <?php body_class("normal"); ?> onbeforeunload="window.Cargando.iniciar()">
-<div id="cargando" class="cover"></div>
+<?= \Gafa\GafaTemplate::Imprimir('cargando/inicia') ?>
 <div class="contenedor">

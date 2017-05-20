@@ -162,12 +162,68 @@ var ParallaxObject = {
 };
 //Iniciamos Ocultando
 $(document).ready(function () {
-    setTimeout(function () {
-        ParallaxObject.init();
-        setTimeout(function () {
-            window.Cargando.borrar();
-        },500);
-    }, 2000);
+    //Inicio de la web
+    var cargado = false;
+    $('#Cargando--Mascara').one('load', function () {
+        //Cargamos primero imagen
+        $('.cargando--mascara').stop().show(0);
+        //Cargamos el resto
+        $('.cargando--bloque>div').stop().fadeIn(500, function () {
+            //Checar el resto de imagenes
+            function loadbar() {
+                if (cargado) {
+                    return;
+                }
+                console.log('hi');
+                var prog = $('.cargando--loader'),
+                    img = document.images,
+                    c = 0,
+                    tot = img.length,
+                    totCargadas = 0;
+                if (tot === 0) return doneLoading();
+
+
+                /**
+                 * Finaliza la carga de imagenes
+                 */
+                function doneLoading() {
+                    setTimeout(function () {
+                        //INICIAMOS
+                        ParallaxObject.init();
+                        setTimeout(function () {
+                            window.Cargando.borrar();
+                        }, 500);
+                    }, 1200);
+                }
+
+                function setPorcentaje(porcentaje) {
+                    console.log(porcentaje);
+                    prog.height(porcentaje + '%');
+                    if (porcentaje > 98) {
+                        cargado = true;
+                        doneLoading();
+                    } else {
+                        loadbar();
+                    }
+                }
+
+                for (var i = 0; i < tot; i++) {
+                    //Calculamos
+                    if (img[1].complete) {
+                        totCargadas++;
+                    }
+                }
+                var porcentaje = (totCargadas * 100) / tot;
+                setPorcentaje(porcentaje);
+            }
+
+            loadbar();
+        });
+    }).each(function () {
+        if (this.complete) $(this).load();
+    });
+
+    //Accion en resize
     $(window).on('resize', function () {
         ParallaxObject.init();
     });

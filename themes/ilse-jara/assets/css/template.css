@@ -586,3 +586,52 @@ body.home {
 .Footer--derecho li:last-child::after {
     display: none;
 }
+
+.cargando--bloque {
+    position: absolute;
+    height: 54px;
+    width: 235px;
+    z-index: 99;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    overflow: hidden;
+    background: white;
+}
+
+.cargando--loader {
+    background: black;
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    bottom: 0;
+    z-index: 2;
+    border-top: none;
+}
+
+.cargando--mascara {
+    position: absolute;
+    z-index: 3;
+    left: 0px;
+    right: 0px;
+    top: 0;
+    bottom: 0px;
+}
+
+.cargando--fondo {
+    position: absolute;
+    z-index: 1;
+    left: 5px;
+    right: 2px;
+    top: 2px;
+    bottom: 2px;
+    background: #a7a7a7;
+}
+
+.cargando--bloque>div {
+    display: none;
+}
+
+#Cargando--Mascara {
+    display: block;
+}
