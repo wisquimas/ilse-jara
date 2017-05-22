@@ -28,6 +28,7 @@
         <?= $htmlGaleria ?>
     </div>
     <div class="Coleccion--fancys">
+        <div class="Coleccion--fancys--cerrar">x</div>
         <?= $htmlFancys ?>
     </div>
     <script>
@@ -38,7 +39,7 @@
             centerMode: true,
             centerPadding: '30px',
             autoplaySpeed: 2000,
-            autoplay: true, //todo activar autoplay
+            autoplay: true,
             arrows: true,
         })
     </script>

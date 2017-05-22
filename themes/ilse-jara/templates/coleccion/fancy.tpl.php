@@ -7,5 +7,13 @@
  */
 ?>
 <div class="Coleccion--fancy" data-indice="<?= $indice ?>">
-    <img src="<?= $galeria->foto ?>" alt="">
+    <div class="Coleccion--contenedor">
+        <div class="Coleccion--cabecera--left">
+            <img class="Coleccion--cabecera--imagen" src="<?= $galeria->foto ?>" alt="">
+        </div>
+        <div class="Coleccion--cabecera--right">
+            <div class="Coleccion--fancy--zoom"></div>
+            <div class="Coleccion--fancy--texto"><?= $galeria->texto ?></div>
+        </div>
+    </div>
 </div>

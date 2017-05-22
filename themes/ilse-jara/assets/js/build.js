@@ -10633,14 +10633,29 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Coleccion = {
     elementos: (0, _jquery2.default)('.Coleccion--galeria--foto'),
+    cerrar: (0, _jquery2.default)('.Coleccion--fancys--cerrar'),
     init: function init() {
         if (this.elementos.length) {
             this.Listeners();
         }
     },
     Listeners: function Listeners() {
-        this.elementos.on('click', function () {
-            alert('hi');
+        this.elementos.on('click', function (e) {
+            var $target = (0, _jquery2.default)(e.delegateTarget);
+            var id = $target.data('indice');
+
+            /*
+             Reset
+             */
+            (0, _jquery2.default)('.Coleccion--fancy').stop().hide(0);
+            /*
+             Visualizar
+             */
+            (0, _jquery2.default)('.Coleccion--fancy[data-indice="' + id + '"]').stop().show(0);
+            (0, _jquery2.default)('.Coleccion--fancys').stop().fadeIn(500);
+        });
+        this.cerrar.on('click', function () {
+            (0, _jquery2.default)('.Coleccion--fancys').stop().fadeOut(500);
         });
     }
 };
