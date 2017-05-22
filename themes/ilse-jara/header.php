@@ -30,8 +30,10 @@ l  `  '  ! |  | /  \ ||     ||  :  | |  | |   |   ||  _  |/  \ |
     <!--suppress HtmlUnknownTarget -->
     <link type="text/css" rel="stylesheet" href="<?php assets(); ?>/css/templateResponsive.css"/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
     <?php require_once("assets/js/gafaCore.php"); ?>
+
+    <!--Slider COlecciones CSS-->
+    <link rel="stylesheet" type="text/css" href="<?php assets(); ?>/js/vendor/slick/slick.css"/>
 
     <!--suppress HtmlUnknownTarget -->
     <link rel="stylesheet" href="<?php assets(); ?>/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css"
@@ -39,7 +41,8 @@ l  `  '  ! |  | /  \ ||     ||  :  | |  | |   |   ||  _  |/  \ |
     <!--suppress HtmlUnknownTarget -->
     <script type="text/javascript" src="<?php assets(); ?>/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
     <script type="text/javascript" src="<?php assets(); ?>/js/vendor/jquery.inview-master/jquery.inview.js"></script>
-
+    <!-- Slider COlecciones JS-->
+    <script type="text/javascript" src="<?php assets(); ?>/js/vendor/slick/slick.min.js"></script>
     <!-- Comienza WP Head -->
     <?php wp_head(); ?>
     <!-- Google Analytics -->

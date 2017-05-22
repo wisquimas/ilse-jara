@@ -686,3 +686,49 @@ body.home {
 .Coleccion--cabecera--texto p {
     margin-bottom: 21px;
 }
+
+.Coleccion--galeria--foto {
+    /* padding: 0 15px; */
+    /* width: 100px; */
+    text-align: center;
+}
+
+.Coleccion--galeria--foto img {
+    width: 64%;
+    margin: 0 auto;
+    transition: 1s all ease;
+    padding-top: 70px;
+}
+
+.Coleccion--galeria--foto.slick-current img {
+    width: 100%;
+    padding-top: 0;
+}
+
+.slick-next {
+    right: 0;
+}
+
+.Coleccion--galeria {
+    margin: 102px 50px;
+}
+
+.slick-next, .slick-prev {
+    background: url("../images/coleccion/flechas.png");
+    background-position: center right;
+    height: 90px;
+    width: 49px;
+    top: 50%;
+    z-index: 2;
+    position: absolute;
+    border: none;
+    background-repeat: no-repeat;
+    margin-top: -45px;
+    font-size: 0;
+    cursor: pointer;
+}
+
+.slick-prev {
+    left: 0;
+    background-position: left center;
+}

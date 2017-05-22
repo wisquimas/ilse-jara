@@ -9,6 +9,9 @@ class Coleccion extends GafaObject
     public $imagenes_home_normal = '';
     public $imagenes_home_hover = '';
     public $informacion_imagen_principal = '';
+    /**
+     * @var GaleriaColeccion[]
+     */
     public $galeria = array();
     public $contenido = array();
     public $fecha = '';
@@ -45,7 +48,22 @@ class Coleccion extends GafaObject
             ),
             array(
                 'propiedad'      => 'galeria', //Propiedad interna
-                'customFunction' => static::FuncionDeGrupo('galeria'), //Funcion callback
+                'customFunction' => function ($clase, $propiedad) {
+                    $respuesta = array();
+                    $groupMf = get_group('galeria', $clase->ID);
+                    static::LimpiarGrupo($groupMf);
+                    if (count($groupMf)) {
+                        foreach ($groupMf as $grupo) {
+                            $imagen = isset($grupo['galeria_imagen']['original']) ? $grupo['galeria_imagen']['original'] : '';
+                            $texto = isset($grupo['galeria_texto']) ? $grupo['galeria_texto'] : '';
+                            if (!empty($imagen)) {
+                                $respuesta[] = new GaleriaColeccion($imagen, $texto);
+                            }
+                        }
+                    }
+
+                    return $respuesta;
+                }, //Funcion callback
             ),
             array(
                 'propiedad'      => 'contenido', //Propiedad interna

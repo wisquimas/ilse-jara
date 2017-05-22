@@ -3,6 +3,7 @@
  * Vista de coleccion individual
  *
  * @var \IlseJara\Coleccion $coleccion
+ * @var string              $htmlGaleria
  */
 ?>
 <div class="Coleccion">
@@ -22,4 +23,19 @@
     <div class="Coleccion--cabecera--texto">
         <?= $coleccion->contenido ?>
     </div>
+    <div class="Coleccion--galeria">
+        <?= $htmlGaleria ?>
+    </div>
+    <script>
+        $('.Coleccion--galeria').slick({
+            infinite: true,
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            centerMode: true,
+            centerPadding: '30px',
+            autoplaySpeed: 2000,
+            autoplay: true,
+            arrows: true,
+        })
+    </script>
 </div>
