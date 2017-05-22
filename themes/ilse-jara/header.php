@@ -43,6 +43,8 @@ l  `  '  ! |  | /  \ ||     ||  :  | |  | |   |   ||  _  |/  \ |
     <script type="text/javascript" src="<?php assets(); ?>/js/vendor/jquery.inview-master/jquery.inview.js"></script>
     <!-- Slider COlecciones JS-->
     <script type="text/javascript" src="<?php assets(); ?>/js/vendor/slick/slick.min.js"></script>
+    <!--Zoom-->
+    <script type="text/javascript" src="<?php assets(); ?>/js/vendor/zoom/jquery.elevatezoom.js"></script>
     <!-- Comienza WP Head -->
     <?php wp_head(); ?>
     <!-- Google Analytics -->

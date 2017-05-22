@@ -9,11 +9,20 @@
 <div class="Coleccion--fancy" data-indice="<?= $indice ?>">
     <div class="Coleccion--contenedor">
         <div class="Coleccion--cabecera--left">
-            <img class="Coleccion--cabecera--imagen" src="<?= $galeria->foto ?>" alt="">
+            <img id="Coleccion--cabecera--imagen--<?= $indice ?>" class="Coleccion--cabecera--imagen"
+                 src="<?= $galeria->foto ?>" alt="">
         </div>
         <div class="Coleccion--cabecera--right">
-            <div class="Coleccion--fancy--zoom"></div>
+            <div id="Coleccion--fancy--zoom--<?= $indice ?>" class="Coleccion--fancy--zoom"
+                 style="background-image: url(<?= $galeria->foto ?>)"></div>
             <div class="Coleccion--fancy--texto"><?= $galeria->texto ?></div>
         </div>
     </div>
+    <script>
+        $("#Coleccion--cabecera--imagen--<?= $indice ?>").elevateZoom({
+            easing: true,
+            borderSize: 0,
+            zoomWindowPosition: "Coleccion--fancy--zoom--<?= $indice ?>",
+        });
+    </script>
 </div>
