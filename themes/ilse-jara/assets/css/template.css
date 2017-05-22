@@ -645,6 +645,7 @@ body.home {
 
 .Coleccion--cabecera {
     padding-top: 86px;
+    overflow: hidden;
 }
 
 .Coleccion--cabecera--left {
@@ -672,4 +673,16 @@ body.home {
 .Coleccion--cabecera--title--date {
     font-weight: 200;
     font-size: 30px;
+}
+
+.Coleccion--cabecera--texto {
+    font-size: 18px;
+    text-transform: uppercase;
+    padding-top: 60px;
+    margin: 0 auto;
+    max-width: 1022px;
+}
+
+.Coleccion--cabecera--texto p {
+    margin-bottom: 21px;
 }

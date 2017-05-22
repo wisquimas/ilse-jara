@@ -19,4 +19,7 @@
             </div>
         </div>
     </div>
+    <div class="Coleccion--cabecera--texto">
+        <?= $coleccion->contenido ?>
+    </div>
 </div>
