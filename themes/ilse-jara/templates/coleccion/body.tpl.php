@@ -25,6 +25,25 @@
     </div>
     <div class="Coleccion--galeria">
         <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
+        <?= $htmlGaleria ?>
     </div>
     <script>
         $('.Coleccion--galeria').slick({
@@ -33,8 +52,8 @@
             slidesToScroll: 5,
             centerMode: true,
             centerPadding: '30px',
-            autoplaySpeed: 2000,
-            autoplay: true,
+//            autoplaySpeed: 2000,
+//            autoplay: true, //todo activar autoplay
             arrows: true,
         })
     </script>

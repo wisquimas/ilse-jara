@@ -8,6 +8,7 @@ class HomeOptions extends GafaObject
 
     public $sliders = array();
     public $contacto_email = '';
+    public $redes = array();
 
     /**
      * Seteamos las opciones
@@ -31,6 +32,10 @@ class HomeOptions extends GafaObject
             array(
                 'propiedad' => 'contacto_email', //Propiedad interna
                 'meta_slug' => 'contacto_email', //meta slug referencia de la db
+            ),
+            array(
+                'propiedad'      => 'redes', //Propiedad interna
+                'customFunction' => static::FuncionDeGrupo('redes'), //Funcion callback
             ),
         );
     }

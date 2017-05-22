@@ -30,4 +30,6 @@ echo \Gafa\GafaTemplate::Imprimir('coleccion/body', array(
     'htmlGaleria' => $htmlGaleria(),
 ));
 
+echo \IlseJara\Footer::Imprimir();
+
 get_footer();
