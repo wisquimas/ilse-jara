@@ -209,7 +209,7 @@ $(document).ready(function () {
 
                 for (var i = 0; i < tot; i++) {
                     //Calculamos
-                    if (img[1].complete) {
+                    if (img[i].complete) {
                         totCargadas++;
                     }
                 }
