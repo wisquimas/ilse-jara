@@ -637,3 +637,39 @@ body.home {
     display: block;
     width: 100%;
 }
+
+.Coleccion--contenedor {
+    margin: 0 auto;
+    max-width: 1152px;
+}
+
+.Coleccion--cabecera {
+    padding-top: 86px;
+}
+
+.Coleccion--cabecera--left {
+    float: left;
+    width: 40%;
+}
+
+.Coleccion--cabecera--right {
+    float: left;
+    width: 51%;
+    margin-left: 9%;
+    font-size: 40px;
+    text-transform: uppercase;
+    padding-top: 126px;
+}
+
+.Coleccion--cabecera--imagen {
+    width: 100%;
+}
+
+.Coleccion--cabecera--title--h1 {
+    font-weight: 800;
+}
+
+.Coleccion--cabecera--title--date {
+    font-weight: 200;
+    font-size: 30px;
+}
