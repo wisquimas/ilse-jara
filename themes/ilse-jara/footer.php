@@ -1,4 +1,3 @@
-</div>
 <div id="w_f">
     <?php wp_footer(); ?>
     <!--suppress HtmlUnknownTarget -->

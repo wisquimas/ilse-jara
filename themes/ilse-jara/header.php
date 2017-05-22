@@ -49,4 +49,3 @@ l  `  '  ! |  | /  \ ||     ||  :  | |  | |   |   ||  _  |/  \ |
 </head>
 <body <?php body_class("normal"); ?> onbeforeunload="window.Cargando.iniciar()">
 <?= \Gafa\GafaTemplate::Imprimir('cargando/inicia') ?>
-<div class="contenedor">

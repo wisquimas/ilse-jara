@@ -174,7 +174,6 @@ $(document).ready(function () {
                 if (cargado) {
                     return;
                 }
-                console.log('hi');
                 var prog = $('.cargando--loader'),
                     img = document.images,
                     c = 0,
@@ -197,13 +196,14 @@ $(document).ready(function () {
                 }
 
                 function setPorcentaje(porcentaje) {
-                    console.log(porcentaje);
                     prog.height(porcentaje + '%');
                     if (porcentaje > 98) {
                         cargado = true;
                         doneLoading();
                     } else {
-                        loadbar();
+                        setTimeout(function () {
+                            loadbar();
+                        }, 100);
                     }
                 }
 
