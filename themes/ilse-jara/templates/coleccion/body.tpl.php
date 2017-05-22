@@ -4,6 +4,7 @@
  *
  * @var \IlseJara\Coleccion $coleccion
  * @var string              $htmlGaleria
+ * @var string              $htmlFancys
  */
 ?>
 <div class="Coleccion">
@@ -25,25 +26,9 @@
     </div>
     <div class="Coleccion--galeria">
         <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
-        <?= $htmlGaleria ?>
+    </div>
+    <div class="Coleccion--fancys">
+        <?= $htmlFancys ?>
     </div>
     <script>
         $('.Coleccion--galeria').slick({
@@ -52,8 +37,8 @@
             slidesToScroll: 5,
             centerMode: true,
             centerPadding: '30px',
-//            autoplaySpeed: 2000,
-//            autoplay: true, //todo activar autoplay
+            autoplaySpeed: 2000,
+            autoplay: true, //todo activar autoplay
             arrows: true,
         })
     </script>

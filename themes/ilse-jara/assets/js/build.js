@@ -10632,7 +10632,17 @@ var _jquery2 = _interopRequireDefault(_jquery);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Coleccion = {
-    init: function init() {}
+    elementos: (0, _jquery2.default)('.Coleccion--galeria--foto'),
+    init: function init() {
+        if (this.elementos.length) {
+            this.Listeners();
+        }
+    },
+    Listeners: function Listeners() {
+        this.elementos.on('click', function () {
+            alert('hi');
+        });
+    }
 };
 
 exports.default = Coleccion;
