@@ -2,6 +2,7 @@ import $ from 'jquery'
 import Cargando from './Cargando'
 
 const NavHome = {
+    menuFlat: $('.MenuFlat'),
     init(){
         //Integramos Listeners
         this.Listeners();
@@ -43,6 +44,10 @@ const NavHome = {
                 })
             }
         })
+        //Click abrir menu flat
+        this.menuFlat.on('click', function () {
+            $('body').toggleClass('movilAbierto');
+        });
     },
     IrASeccion(seccionTarget){
         let hija = seccionTarget.find('>div');

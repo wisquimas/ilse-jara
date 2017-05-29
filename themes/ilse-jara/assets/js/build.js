@@ -10884,6 +10884,7 @@ var _Cargando2 = _interopRequireDefault(_Cargando);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var NavHome = {
+    menuFlat: (0, _jquery2.default)('.MenuFlat'),
     init: function init() {
         //Integramos Listeners
         this.Listeners();
@@ -10924,6 +10925,10 @@ var NavHome = {
                     }
                 });
             }
+        });
+        //Click abrir menu flat
+        this.menuFlat.on('click', function () {
+            (0, _jquery2.default)('body').toggleClass('movilAbierto');
         });
     },
     IrASeccion: function IrASeccion(seccionTarget) {

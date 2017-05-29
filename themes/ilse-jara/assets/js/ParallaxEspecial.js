@@ -29,6 +29,7 @@ var ParallaxObject = {
             //Marcamos elemento como iniciado
             this.iniciado = true;
         }
+        this.ListenerEspecialMenuFlatHomeNoParallax();
         this.CheckIfHashInUrl();
     },
     CheckIfHashInUrl(){
@@ -36,6 +37,29 @@ var ParallaxObject = {
         hash = window.NavHome.ClearHash(hash);
 
         window.NavHome.CheckIrASeccion(hash);
+    },
+    ListenerEspecialMenuFlatHomeNoParallax(){
+        if ($('body.home').length) {
+            //Solo importa en home
+            $(window).on('scroll', function () {
+                var anchoVista = $(window).outerWidth();
+                var alturaScroll = $(window).scrollTop();
+                if (anchoVista < ParallaxObject.anchoMinimo) {
+                    //Solo hacemos esto cuando estamos sin parallax
+                    if (alturaScroll >= 600) {
+                        ParallaxObject.ActivarMenuFlat();
+                    } else {
+                        ParallaxObject.DesActivarMenuFlat();
+                    }
+                }
+            })
+        }
+    },
+    ActivarMenuFlat(){
+        $('.home .MenuFlat').addClass('menuHomeVisible')
+    },
+    DesActivarMenuFlat(){
+        $('.home .MenuFlat').removeClass('menuHomeVisible')
     },
     /**
      * Resetea el efecto
@@ -135,6 +159,13 @@ var ParallaxObject = {
 
         //Almacenamos en objeto
         this.currentSeccion = seccion;
+        if (seccion.is(this.secciones.first())) {
+            //Desactivamos menu
+            this.DesActivarMenuFlat();
+        } else {
+            //Activamos menu
+            this.ActivarMenuFlat();
+        }
     },
     acomodarComoSiguiente(seccion){
         if (seccion.length) {
@@ -226,5 +257,8 @@ $(document).ready(function () {
     //Accion en resize
     $(window).on('resize', function () {
         ParallaxObject.init();
+        setTimeout(function () {
+            window.Cargando.borrar();
+        }, 1500)
     });
 });

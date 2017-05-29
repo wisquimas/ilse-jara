@@ -345,8 +345,7 @@ body.home {
     transition: 1s opacity ease;
 }
 
-.Universo--loop:hover
-.Universo--loop--hover {
+.Universo--loop:hover .Universo--loop--hover {
     opacity: 1;
 }
 
@@ -425,7 +424,7 @@ body.home {
     font-weight: 200;
     left: 31px;
     background: white;
-    box-shadow: 0px 0px 58px;
+    box-shadow: 0 0 58px;
 }
 
 .Contacto--ventana--cerrar {
@@ -546,7 +545,7 @@ body.home {
     font-weight: 200;
 }
 
-#Footer>.contenedor {
+#Footer > .contenedor {
     position: relative;
     height: 167px;
     line-height: 167px;
@@ -612,23 +611,23 @@ body.home {
 .cargando--mascara {
     position: absolute;
     z-index: 3;
-    left: 0px;
-    right: 0px;
+    left: 0;
+    right: 0;
     top: 0;
-    bottom: 0px;
+    bottom: 0;
 }
 
 .cargando--fondo {
     position: absolute;
     z-index: 1;
-    left: 0px;
+    left: 0;
     right: 2px;
     top: 1px;
     bottom: 9px;
     background: #a7a7a7;
 }
 
-.cargando--bloque>div {
+.cargando--bloque > div {
     display: none;
 }
 
@@ -798,4 +797,131 @@ body.home {
     background-position: center top;
     background-repeat: no-repeat;
     background-size: 100% auto;
+}
+
+.MenuFlat--abrirMenu {
+    width: 25px;
+    margin: 0 auto;
+    height: 25px;
+    cursor: pointer;
+    right: 0;
+    display: inline-block;
+    position: relative;
+    margin-right: 0;
+    z-index: 6;
+}
+
+.MenuFlat--abrirMenu > span {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    background: white;
+}
+
+#barra_1 {
+    top: 0;
+}
+
+#barra_2 {
+    top: 10px;
+}
+
+#barra_3 {
+    top: 20px;
+}
+
+.MenuFlat {
+    position: fixed;
+    padding: 15px;
+    background: black;
+    z-index: 5;
+}
+
+.MenuFlat--abrirMenu:hover #barra_1 {
+    transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    top: 10px;
+}
+
+.MenuFlat--abrirMenu:hover #barra_3 {
+    top: 10px;
+}
+
+.movilAbierto #barra_1 {
+    transform: rotate(45deg) !important;
+    -moz-transform: rotate(45deg) !important;
+    -ms-transform: rotate(45deg) !important;
+    -o-transform: rotate(45deg) !important;
+    -webkit-transform: rotate(45deg) !important;
+    top: 11px;
+}
+
+.movilAbierto #barra_2, .MenuFlat--abrirMenu:hover #barra_2 {
+    opacity: 0;
+}
+
+.movilAbierto #barra_3 {
+    transform: rotate(-45deg) !important;
+    -moz-transform: rotate(-45deg) !important;
+    -ms-transform: rotate(-45deg) !important;
+    -o-transform: rotate(-45deg) !important;
+    -webkit-transform: rotate(-45deg) !important;
+    top: 11px;
+}
+
+.movilAbierto .MenuFlat--menu {
+    opacity: 1;
+    top: 0;
+}
+
+.MenuFlat--menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    height: 100%;
+    z-index: 5;
+    background: white;
+    padding-top: 25px;
+    right: 0;
+    overflow: auto;
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.MenuFlat--menu .Menu--nav .menu > li {
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid #f3f3f3;
+    font-size: 22px;
+}
+
+.MenuFlat--menu .Menu--nav .menu > li a {
+    padding: 10px;
+    display: block;
+    transition: 0.3s padding ease;
+}
+
+.MenuFlat--menu .Menu--nav .menu > li a:hover {
+    padding: 20px;
+}
+
+.home .MenuFlat {
+    left: -70px;
+    transition: 0.3s left ease;
+}
+
+.MenuFlat.menuHomeVisible {
+    left: 0;
+}
+
+.movilAbierto .MenuFlat--abrirMenu > span {
+    background: black;
 }
