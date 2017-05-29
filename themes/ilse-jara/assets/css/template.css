@@ -925,3 +925,9 @@ body.home {
 .movilAbierto .MenuFlat--abrirMenu > span {
     background: black;
 }
+
+.FashionLab {
+    padding: 100px 0;
+    clear: both;
+    overflow: hidden;
+}
