@@ -23,6 +23,12 @@
             easing: true,
             borderSize: 0,
             zoomWindowPosition: "Coleccion--fancy--zoom--<?= $indice ?>",
+            callback: function (self) {
+                var ancho = self.externalContainer.outerWidth();
+                var alto = self.externalContainer.outerHeight();
+                self.zoomWindow.outerWidth(ancho);
+                self.zoomWindow.outerHeight(alto);
+            }
         });
     </script>
 </div>
