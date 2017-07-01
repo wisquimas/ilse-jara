@@ -1,0 +1,23 @@
+{
+  "name": "wisquimas/wordpress-template",
+  "description": "Plantilla inicial para Wordpress",
+  "license": "MIT",
+  "type": "wordpress-theme",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "composer/installers": "~1.0",
+    "wisquimas/funciones-basicas" : "dev-master"
+  },
+  "extra": {
+    "installer-paths": {
+      "wp/wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ]
+    }
+  }
+}
