@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "browserify -t [babelify --presets [es2015 react] ] themes/ilse-jara/assets/js/index.js > themes/ilse-jara/assets/js/build.js"
+    "build": "browserify -t [babelify --presets [es2015 react] ] wp/wp-content/themes/ilse-jara/assets/js/index.js > wp/wp-content/themes/ilse-jara/assets/js/build.js"
   },
   "repository": {
     "type": "git",
