@@ -26,6 +26,12 @@
             <?= $htmlColecciones ?>
         </div>
     </section>
+    <section id="testimonio" class="Home--Colecciones">
+        <div class="contenedor">
+            <div class="Home--titulo">Testimonio</div>
+            <?= $htmlTestimonio ?>
+        </div>
+    </section>
     <section id="fashion-lab" class="Home--FashionLab">
         <div class="contenedor">
             <div class="Home--titulo">Fashion Lab</div>
@@ -36,12 +42,6 @@
         <div class="contenedor">
             <div class="Home--titulo">Universo</div>
             <?= $htmlUniverso ?>
-        </div>
-    </section>
-    <section id="testimonio" class="Home--Colecciones">
-        <div class="contenedor">
-            <div class="Home--titulo">Testimonio</div>
-            <?= $htmlTestimonio ?>
         </div>
     </section>
     <section id="contacto" class="Home--Colecciones">
