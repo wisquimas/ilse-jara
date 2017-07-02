@@ -172,8 +172,8 @@ body {
 .Home--titulo {
     text-align: center;
     background: white;
-    padding: 63px 0;
-    font-size: 71px;
+    padding: 50px 0;
+    font-size: 60px;
     text-transform: uppercase;
     font-weight: 200;
 }
@@ -952,4 +952,23 @@ body.home {
 
 .movilAbierto .Menu--nav .menu > li::after {
     display: none;
+}
+
+.Menu--idiomas {
+    position: absolute;
+    top: 21px;
+    right: 13px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.Menu--idiomas .Menu--idiomas_active {
+    font-weight: 800;
+}
+
+.Menu--idiomas--separador {
+    display: inline-block;
+    width: 2px;
+    background: black;
+    height: 13px;
 }

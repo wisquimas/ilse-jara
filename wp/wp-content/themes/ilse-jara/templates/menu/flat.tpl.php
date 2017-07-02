@@ -3,6 +3,7 @@
  * Vista del Menu Principal
  *
  * @var string $menu
+ * @var string $menu_idiomas
  */
 ?>
 <div class="MenuFlat">
@@ -12,6 +13,7 @@
         <span id="barra_3"></span>
     </div>
     <div class="MenuFlat--menu">
+        <?= $menu_idiomas ?>
         <div class="contenedor">
             <nav class="Menu--nav">
                 <?= $menu ?>

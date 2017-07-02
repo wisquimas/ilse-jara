@@ -9,6 +9,10 @@ class HomeOptions extends GafaObject
     public $sliders = array();
     public $contacto_email = '';
     public $redes = array();
+    //Redes
+    public $idiomas_nombre_actual = '';
+    public $idiomas_nombre_otra = '';
+    public $idiomas_link_otra = '';
 
     /**
      * Seteamos las opciones
@@ -26,7 +30,7 @@ class HomeOptions extends GafaObject
     {
         return array(
             array(
-                'propiedad'      => 'sliders', //Propiedad interna
+                'propiedad' => 'sliders', //Propiedad interna
                 'customFunction' => static::FuncionDeGrupo('slider'), //Funcion callback
             ),
             array(
@@ -34,8 +38,20 @@ class HomeOptions extends GafaObject
                 'meta_slug' => 'contacto_email', //meta slug referencia de la db
             ),
             array(
-                'propiedad'      => 'redes', //Propiedad interna
+                'propiedad' => 'redes', //Propiedad interna
                 'customFunction' => static::FuncionDeGrupo('redes'), //Funcion callback
+            ),
+            array(
+                'propiedad' => 'idiomas_nombre_actual', //Propiedad interna
+                'meta_slug' => 'idiomas_nombre_actual', //meta slug referencia de la db
+            ),
+            array(
+                'propiedad' => 'idiomas_nombre_otra', //Propiedad interna
+                'meta_slug' => 'idiomas_nombre_otra', //meta slug referencia de la db
+            ),
+            array(
+                'propiedad' => 'idiomas_link_otra', //Propiedad interna
+                'meta_slug' => 'idiomas_link_otra', //meta slug referencia de la db
             ),
         );
     }

@@ -15,6 +15,7 @@ abstract class Menu
     {
         return GafaTemplate::Imprimir('menu/body', array(
             'menu' => static::GetMenuWP(),
+            'menu_idiomas' => self::ImprimirMenuIdiomas(),
         ));
     }
 
@@ -26,6 +27,18 @@ abstract class Menu
     {
         return GafaTemplate::Imprimir('menu/flat', array(
             'menu' => static::GetMenuWP(),
+            'menu_idiomas' => self::ImprimirMenuIdiomas(),
+        ));
+    }
+
+    /**
+     * Imprime el menu de idiomas
+     * @return string
+     */
+    static public function ImprimirMenuIdiomas()
+    {
+        return GafaTemplate::Imprimir('menu/idiomas', array(
+            'opciones' => HomeOptions::InstanceCachedLast(),
         ));
     }
 
