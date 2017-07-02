@@ -27,6 +27,8 @@ body {
     font-size: 16px;
     font-weight: 300;
     cursor: pointer;
+    position: relative;
+    overflow: visible;
 }
 
 .Menu--nav .menu {
@@ -37,8 +39,20 @@ body {
     /* font-weight: 800; */
 }
 
-.Menu--nav .menu > li:hover {
-    text-decoration: underline;
+.Menu--nav .menu > li::after {
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 1px;
+    width: 0;
+    content: "";
+    display: block;
+    transition: 1s width ease;
+}
+
+.Menu--nav .menu > li:hover::after {
+    width: 100%;
 }
 
 .tp-leftarrow.tparrows.custom, .tp-rightarrow.tparrows.custom {
@@ -930,4 +944,12 @@ body.home {
     padding: 100px 0;
     clear: both;
     overflow: hidden;
+}
+
+.Menu > .contenedor {
+    overflow: visible;
+}
+
+.movilAbierto .Menu--nav .menu > li::after {
+    display: none;
 }
