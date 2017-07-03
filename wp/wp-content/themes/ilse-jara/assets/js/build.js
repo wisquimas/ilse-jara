@@ -10730,9 +10730,16 @@ var Contacto = {
             this.Listeners();
         }
     },
-    SetTipoContacto: function SetTipoContacto(valor) {
+    SetTipoContacto: function SetTipoContacto(valor, elemento) {
         (0, _jquery2.default)('.Contacto--ventana--title').text(valor);
         this.tipo.val(valor);
+        if (elemento.is("[data-trabaje]")) {
+            //Habilitamos los campos de trabaje
+            (0, _jquery2.default)('.Contacto--form--trabaje').stop().show(0);
+        } else {
+            //Deshabilitamos los campos de trabaje
+            (0, _jquery2.default)('.Contacto--form--trabaje').stop().hide(0);
+        }
     },
     Abrir: function Abrir() {
         this.ventana.stop().fadeIn(200);
@@ -10746,7 +10753,7 @@ var Contacto = {
          */
         this.selectores.on('click', function () {
             var valor = (0, _jquery2.default)(this).text();
-            Contacto.SetTipoContacto(valor);
+            Contacto.SetTipoContacto(valor, (0, _jquery2.default)(this));
             Contacto.Abrir();
         });
         /*
@@ -10764,12 +10771,13 @@ var Contacto = {
             if (!_FormsHelper2.default.check_formularios($form)) {
                 return null;
             }
-            _AjaxHelpers2.default.RequestAjax({
-                funcion: "EnviarFormularioContacto",
-                attr: $form.serialize()
-            }, function (data) {
-                Contacto.Cerrar();
-            });
+            $form.submit();
+            // AjaxHelpers.RequestAjax({
+            //     funcion: "EnviarFormularioContacto",
+            //     attr: $form.serialize()
+            // }, function (data) {
+            //     Contacto.Cerrar();
+            // });
         });
     }
 };

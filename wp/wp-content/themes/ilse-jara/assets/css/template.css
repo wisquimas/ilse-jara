@@ -1052,3 +1052,7 @@ body.home {
     border-top: 0;
     border-bottom: 0;
 }
+
+.Contacto--form--input[type=file] {
+    font-size: 10px;
+}

@@ -114,6 +114,23 @@ $htmlTestimonio = function () {
 $htmlContacto = function () {
     return \Gafa\GafaTemplate::Imprimir('contacto/form');
 };
+/*
+ * Scripts
+ */
+$scripts = function () {
+    if (isset($_GET['contacto'])) {
+        $mensaje = 'Muchas gracias, en breves nos pondremos en contacto.';
+        if ($_GET['contacto'] != 1) {
+            $mensaje = 'Ha ocurrido un error al enviar tu mensaje, inténtalo en 15 minutos.';
+        }
+
+        return \Gafa\GafaTemplate::Imprimir('contacto/mensajes', array(
+            'mensaje' => $mensaje,
+        ));
+    }
+
+    return '';
+};
 /*****************************************************
  * Impresion
  ****************************************************/
@@ -129,6 +146,7 @@ echo \Gafa\GafaTemplate::Imprimir('home/body', array(
     'htmlTestimonio'  => $htmlTestimonio(),
     'htmlContacto'    => $htmlContacto(),
     'htmlFooter'      => \IlseJara\Footer::Imprimir(),
+    'scripts'         => $scripts(),
 ));
 
 get_footer();

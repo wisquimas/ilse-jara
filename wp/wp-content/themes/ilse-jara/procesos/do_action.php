@@ -1,4 +1,4 @@
-<?php require_once('../../../wp/wp-load.php');
+<?php require_once('../../../../wp-load.php');
 
 $mensaje = new Mensajes();
 

@@ -37,3 +37,4 @@ gen
 /wp/wp-config.php
 .htaccess
 /wp/wp-content/uploads/revslider/
+/wp/wp-content/uploads/contacto/*
