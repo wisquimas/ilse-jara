@@ -144,7 +144,14 @@ Responsivos normales
     .Coleccion--fancy--zoom {
         display: none;
     }
+    .Contacto--ventana {
+        padding: 30px;
+    }
 
+    .Contacto--ventana--title {
+        font-size: 20px;
+        padding-right: 30px;
+    }
     /*679 to 480*/
 }
 
@@ -156,6 +163,21 @@ Responsivos normales
 
     .Menu {
         padding: 13px 0;
+        background: white;
+        z-index: 99;
+        position: relative;
+    }
+
+    .YoutubeSlider--cont {
+        overflow: visible;
+    }
+
+    .YoutubeSlider {
+        padding-bottom: 40px;
+    }
+
+    .YoutubeSlider--slides--botones {
+        bottom: -43px;
     }
 
     .YoutubeSlider--slides--botones--discover {
