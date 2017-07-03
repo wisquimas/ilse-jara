@@ -440,12 +440,12 @@ body.home {
     max-width: 90%;
     position: relative;
     padding: 27px 88px;
-    font-size: 33px;
+    font-size: 16px;
     text-transform: uppercase;
     font-weight: 200;
     left: 31px;
     background: white;
-    box-shadow: 0 0 58px;
+    border: 1px solid;
 }
 
 .Contacto--ventana--cerrar {
@@ -466,8 +466,9 @@ body.home {
 .Contacto--form--label {
     float: left;
     width: 50%;
-    line-height: 58px;
+    line-height: 30px;
     position: relative;
+    margin-bottom: 10px;
 }
 
 .Contacto--form {
@@ -493,7 +494,7 @@ body.home {
 }
 
 .Contacto--form--label--telefono {
-    width: 54%;
+    /* width: 54%; */
 }
 
 .Contacto--form--label--email .Contacto--form--input--cont {
@@ -517,8 +518,8 @@ body.home {
     width: 100%;
     clear: both;
     border: 1px solid #696969;
-    margin: 35px 0;
-    height: 291px;
+    margin: 10px 0;
+    height: 80px;
     font-size: 20px;
     color: #696969;
     font-weight: 200;
@@ -534,7 +535,7 @@ body.home {
     display: block;
     width: 100%;
     text-transform: uppercase;
-    font-size: 29px;
+    font-size: 18px;
     line-height: 54px;
     background: white;
     border: 1px solid #696969;
@@ -561,8 +562,8 @@ body.home {
     bottom: 0;
     line-height: initial;
     padding-left: 56px;
-    font-size: 28px;
-    padding-top: 45px;
+    font-size: 16px;
+    padding-top: 66px;
     font-weight: 200;
 }
 
@@ -598,7 +599,7 @@ body.home {
 }
 
 .Footer--derecho li::after {
-    content: '-';
+    content: ' ';
     margin-left: 4px;
 }
 
@@ -686,7 +687,7 @@ body.home {
 }
 
 .Coleccion--cabecera--title--h1 {
-    font-weight: 800;
+    font-weight: 300;
 }
 
 .Coleccion--cabecera--title--date {
@@ -696,7 +697,7 @@ body.home {
 
 .Coleccion--cabecera--texto {
     font-size: 18px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     padding-top: 60px;
     margin: 0 auto;
     max-width: 1022px;
@@ -978,4 +979,12 @@ body.home {
     width: 2px;
     background: black;
     height: 13px;
+}
+
+.zoomLens {
+    border: none !important;
+}
+
+.Contacto--ventana--title {
+    font-size: 28px;
 }
