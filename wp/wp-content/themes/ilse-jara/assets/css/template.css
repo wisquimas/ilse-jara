@@ -1012,3 +1012,16 @@ body.home {
 .Coleccion--fancy--arrow--right {
     right: 15px;
 }
+
+.Coleccion--galeria--foto--pie {
+    text-align: left;
+    width: 64%;
+    margin: 4px auto;
+    text-transform: uppercase;
+    font-size: 10px;
+    transition: 1s all ease;
+}
+
+.slick-current .Coleccion--galeria--foto--pie {
+    width: 100%;
+}

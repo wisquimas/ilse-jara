@@ -56,8 +56,9 @@ class Coleccion extends GafaObject
                         foreach ($groupMf as $grupo) {
                             $imagen = isset($grupo['galeria_imagen']['original']) ? $grupo['galeria_imagen']['original'] : '';
                             $texto = isset($grupo['galeria_texto']) ? $grupo['galeria_texto'] : '';
+                            $pie = isset($grupo['galeria_pie_de_foto']) ? $grupo['galeria_pie_de_foto'] : '';
                             if (!empty($imagen)) {
-                                $respuesta[] = new GaleriaColeccion($imagen, $texto);
+                                $respuesta[] = new GaleriaColeccion($imagen, $texto, $pie);
                             }
                         }
                     }
