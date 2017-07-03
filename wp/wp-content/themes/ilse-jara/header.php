@@ -55,8 +55,7 @@ l  `  '  ! |  | /  \ ||     ||  :  | |  | |   |   ||  _  |/  \ |
     <link rel="stylesheet" type="text/css" href="//cookiescriptcdn.pro/libs/cookieconsent.6.min.css"/>
     <script>
         var cookieconsent_ts = 1499044872718;
-        var learnmore2 = document.getElementById("cookieconsent:learn_more");
-        learnmore2.setAttribute("style", "display:none");</script>
+    </script>
     <script src="//cookiescriptcdn.pro/libs/cookieconsent.6.min.js"></script>
     <script>
         window.addEventListener("load", function () {
