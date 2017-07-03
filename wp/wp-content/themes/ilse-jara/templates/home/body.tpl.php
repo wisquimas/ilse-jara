@@ -24,12 +24,9 @@
         <div class="contenedor">
             <div class="Home--titulo">Colecciones</div>
             <?= $htmlColecciones ?>
-        </div>
-    </section>
-    <section id="testimonio" class="Home--Colecciones">
-        <div class="contenedor">
-            <div class="Home--titulo">Testimonio</div>
-            <?= $htmlTestimonio ?>
+            <div>
+                <?= $htmlTestimonio ?>
+            </div>
         </div>
     </section>
     <section id="fashion-lab" class="Home--FashionLab">

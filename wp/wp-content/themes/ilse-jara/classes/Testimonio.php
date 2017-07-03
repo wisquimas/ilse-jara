@@ -6,7 +6,6 @@ class Testimonio extends GafaObject
 {
     const PostType = 'post';
 
-    public $informacion_imagen_loop = '';
     public $informacion_nombre_en_loop_home = '';
 
     /**
@@ -24,11 +23,6 @@ class Testimonio extends GafaObject
     function GetOptions()
     {
         return array(
-            array(
-                'propiedad'      => 'informacion_imagen_loop', //Propiedad interna
-                'meta_slug'      => 'informacion_imagen_loop', //meta slug referencia de la db
-                'customFunction' => static::FuncionImagen(), //Funcion callback
-            ),
             array(
                 'propiedad' => 'informacion_nombre_en_loop_home', //Propiedad interna
                 'meta_slug' => 'informacion_nombre_en_loop_home', //meta slug referencia de la db
