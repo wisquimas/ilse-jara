@@ -13,6 +13,7 @@
         <div class="Footer--izquierdo">
             <?= $direccion ?><br>
             <?= $telefono ?>
+            <?= do_shortcode('[mc4wp_form]'); ?>
         </div>
         <div class="Footer--centro"><?= $redes ?></div>
         <div class="Footer--derecho"><?= $menu ?></div>
