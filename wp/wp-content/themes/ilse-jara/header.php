@@ -51,6 +51,36 @@ l  `  '  ! |  | /  \ ||     ||  :  | |  | |   |   ||  _  |/  \ |
     <script type='text/javascript'
             src='//platform-api.sharethis.com/js/sharethis.js#property=5914db8b8415370011847de9&product=custom-share-buttons'
             async='async'></script>
+    <!-- Begin Cookie Consent script https://cookiescript.info/ -->
+    <link rel="stylesheet" type="text/css" href="//cookiescriptcdn.pro/libs/cookieconsent.6.min.css"/>
+    <script>
+        var cookieconsent_ts = 1499044872718;
+        var learnmore2 = document.getElementById("cookieconsent:learn_more");
+        learnmore2.setAttribute("style", "display:none");</script>
+    <script src="//cookiescriptcdn.pro/libs/cookieconsent.6.min.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#efefef",
+                        "text": "#404040"
+                    },
+                    "button": {
+                        "background": "#8ec760",
+                        "text": "#ffffff"
+                    }
+                },
+                "theme": "edgeless",
+                "content": {
+                    "message": "Este sitio usa coockies para asegurar una mejor experiencia.",
+                    "dismiss": "Acepto",
+                    "link": "Aprenda más"
+                }
+            })
+        });
+    </script>
+    <!-- End Cookie Consent script -->
 </head>
 <body <?php body_class("normal"); ?> onbeforeunload="window.Cargando.iniciar()">
 <?= \Gafa\GafaTemplate::Imprimir('cargando/inicia') ?>
