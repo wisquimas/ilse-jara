@@ -10633,30 +10633,63 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Coleccion = {
     elementos: (0, _jquery2.default)('.Coleccion--galeria--foto'),
+    flechas: (0, _jquery2.default)('.Coleccion--fancy--arrow--left,.Coleccion--fancy--arrow--right'),
     cerrar: (0, _jquery2.default)('.Coleccion--fancys--cerrar'),
+    indiceActual: null,
     init: function init() {
         if (this.elementos.length) {
             this.Listeners();
         }
     },
     Listeners: function Listeners() {
-        this.elementos.on('click', function (e) {
+        var componente = this;
+        //Desplegar
+        componente.elementos.on('click', function (e) {
             var $target = (0, _jquery2.default)(e.delegateTarget);
             var id = $target.data('indice');
 
-            /*
-             Reset
-             */
-            (0, _jquery2.default)('.Coleccion--fancy').stop().hide(0);
-            /*
-             Visualizar
-             */
-            (0, _jquery2.default)('.Coleccion--fancy[data-indice="' + id + '"]').stop().show(0);
-            (0, _jquery2.default)('.Coleccion--fancys').stop().fadeIn(500);
+            componente.mostrarIndice(id);
         });
-        this.cerrar.on('click', function () {
+        //Cerrar
+        componente.cerrar.on('click', function () {
             (0, _jquery2.default)('.Coleccion--fancys').stop().fadeOut(500);
         });
+        //Siguiente anterior
+        componente.flechas.on('click', function (e) {
+            console.log(e, componente);
+            var $target = (0, _jquery2.default)(e.delegateTarget);
+            var indiceActual = parseInt(componente.indiceActual);
+            var maximo = parseInt((0, _jquery2.default)('.Coleccion--fancy').last().data('indice'));
+
+            if ($target.is('.Coleccion--fancy--arrow--right')) {
+                //Siguiente
+                indiceActual += 1;
+                if (indiceActual > maximo) {
+                    indiceActual = 0;
+                }
+            } else {
+                //Anterior
+                indiceActual -= 1;
+                if (indiceActual < 0) {
+                    indiceActual = maximo;
+                }
+            }
+            //Guardamos nuevo y desplegamos
+            componente.mostrarIndice(indiceActual);
+        });
+    },
+    mostrarIndice: function mostrarIndice(id) {
+        /*
+         Reset
+         */
+        (0, _jquery2.default)('.Coleccion--fancy').stop().hide(0);
+        /*
+         Visualizar
+         */
+        (0, _jquery2.default)('.Coleccion--fancy[data-indice="' + id + '"]').stop().show(0);
+        (0, _jquery2.default)('.Coleccion--fancys').stop().fadeIn(500);
+        //Salvar
+        this.indiceActual = id;
     }
 };
 

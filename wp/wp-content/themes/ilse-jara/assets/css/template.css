@@ -988,3 +988,27 @@ body.home {
 .Contacto--ventana--title {
     font-size: 28px;
 }
+
+.Coleccion--fancy--arrow--right,.Coleccion--fancy--arrow--left {
+    background: url(../images/coleccion/flechas.png);
+    background-position: center right;
+    height: 90px;
+    width: 49px;
+    top: 50%;
+    z-index: 2;
+    position: absolute;
+    border: none;
+    background-repeat: no-repeat;
+    margin-top: -45px;
+    font-size: 0;
+    cursor: pointer;
+}
+
+.Coleccion--fancy--arrow--left {
+    left: 15px;
+    background-position: left center;
+}
+
+.Coleccion--fancy--arrow--right {
+    right: 15px;
+}

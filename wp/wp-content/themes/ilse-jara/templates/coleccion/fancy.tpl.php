@@ -7,6 +7,8 @@
  */
 ?>
 <div class="Coleccion--fancy" data-indice="<?= $indice ?>">
+    <div class="Coleccion--fancy--arrow--left"></div>
+    <div class="Coleccion--fancy--arrow--right"></div>
     <div class="Coleccion--contenedor">
         <div class="Coleccion--cabecera--left">
             <img id="Coleccion--cabecera--imagen--<?= $indice ?>" class="Coleccion--cabecera--imagen"
