@@ -13,6 +13,7 @@ import Coleccion from './helpers/Coleccion';
 import NavHome from './helpers/NavHome';
 import Contacto from './helpers/Contacto';
 import Cargando from './helpers/Cargando';
+import FashionLab from './helpers/FashionLab';
 
 /**
  * Inicio
@@ -23,6 +24,7 @@ BannerHome.init();
 Coleccion.init();
 NavHome.init();
 Contacto.init();
+FashionLab.init();
 
 /**
  * Seteo de globales

@@ -11,7 +11,7 @@ $htmlFashionLab = function () {
 
     if (count($fashionLabs)) {
         foreach ($fashionLabs as $lab) {
-            $html .= \Gafa\GafaTemplate::Imprimir('fashion-lab/loop', array(
+            $html .= \Gafa\GafaTemplate::Imprimir('fashion-lab/loop-fashion', array(
                 'fashion' => $lab,
             ));
         }

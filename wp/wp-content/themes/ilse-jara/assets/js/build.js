@@ -10776,7 +10776,49 @@ var Contacto = {
 
 exports.default = Contacto;
 
-},{"./AjaxHelpers":2,"./FormsHelper":8,"jquery":1}],8:[function(require,module,exports){
+},{"./AjaxHelpers":2,"./FormsHelper":9,"jquery":1}],8:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    elementos: $('.FashionLab--loop'),
+    cerrar: $('.FashionLab--fancy--cerrar'),
+    init: function init() {
+        if ($('.FashionLab--fancy').length) {
+            this.Listeners();
+        }
+    },
+    Listeners: function Listeners() {
+        var componente = this;
+        //Desplegar
+        componente.elementos.on('click', function (e) {
+            var $target = $(e.delegateTarget);
+            var id = $target.data('fashion');
+
+            componente.mostrarIndice(id);
+        });
+        //Cerrar
+        componente.cerrar.on('click', function () {
+            $('.FashionLab--fancy').stop().fadeOut(500);
+        });
+    },
+    mostrarIndice: function mostrarIndice(id) {
+        /*
+         Reset
+         */
+        $('.FashionLab--fancy').stop().hide(0);
+        /*
+         Visualizar
+         */
+        $('.FashionLab--fancy[data-fashion="' + id + '"]').stop().show(0);
+        //Salvar
+        this.indiceActual = id;
+    }
+};
+
+},{}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10861,7 +10903,7 @@ var HelperForms = {
     */
 exports.default = HelperForms;
 
-},{"jquery":1}],9:[function(require,module,exports){
+},{"jquery":1}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10899,7 +10941,7 @@ var IniciarWeb = {
 
 exports.default = IniciarWeb;
 
-},{"jquery":1}],10:[function(require,module,exports){
+},{"jquery":1}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -11044,7 +11086,7 @@ var NavHome = {
 
 exports.default = NavHome;
 
-},{"./Cargando":5,"jquery":1}],11:[function(require,module,exports){
+},{"./Cargando":5,"jquery":1}],12:[function(require,module,exports){
 'use strict';
 
 var _Alerta = require('./helpers/Alerta');
@@ -11075,6 +11117,10 @@ var _Cargando = require('./helpers/Cargando');
 
 var _Cargando2 = _interopRequireDefault(_Cargando);
 
+var _FashionLab = require('./helpers/FashionLab');
+
+var _FashionLab2 = _interopRequireDefault(_FashionLab);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -11082,17 +11128,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 
 /**
+ * Estos son los que se cargan como globales
+ */
+//noinspection ES6UnusedImports
+_IniciarWeb2.default.init();
+
+/**
  * Aca se cargan los helpers o scripts que se necesiten
  */
-_IniciarWeb2.default.init(); /**
-                              * Estos son los que se cargan como globales
-                              */
-//noinspection ES6UnusedImports
 
 _BannerHome2.default.init();
 _Coleccion2.default.init();
 _NavHome2.default.init();
 _Contacto2.default.init();
+_FashionLab2.default.init();
 
 /**
  * Seteo de globales
@@ -11100,4 +11149,4 @@ _Contacto2.default.init();
 window.NavHome = _NavHome2.default;
 window.Cargando = _Cargando2.default;
 
-},{"./helpers/Alerta":3,"./helpers/BannerHome":4,"./helpers/Cargando":5,"./helpers/Coleccion":6,"./helpers/Contacto":7,"./helpers/IniciarWeb":9,"./helpers/NavHome":10}]},{},[11]);
+},{"./helpers/Alerta":3,"./helpers/BannerHome":4,"./helpers/Cargando":5,"./helpers/Coleccion":6,"./helpers/Contacto":7,"./helpers/FashionLab":8,"./helpers/IniciarWeb":10,"./helpers/NavHome":11}]},{},[12]);

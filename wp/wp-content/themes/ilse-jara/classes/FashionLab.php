@@ -10,6 +10,7 @@ class FashionLab extends GafaObject
     public $imagenes_imagen2 = '';
     public $imagenes_imagen3 = '';
     public $imagenes_imagen4 = '';
+    public $texto_texto = '';
 
     /**
      * Seteamos las opciones
@@ -26,6 +27,10 @@ class FashionLab extends GafaObject
     function GetOptions()
     {
         return array(
+            array(
+                'propiedad' => 'texto_texto', //Propiedad interna
+                'meta_slug' => 'texto_texto', //meta slug referencia de la db
+            ),
             array(
                 'propiedad'      => 'imagenes_imagen1', //Propiedad interna
                 'meta_slug'      => 'imagenes_imagen1', //meta slug referencia de la db
