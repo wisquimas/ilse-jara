@@ -16,9 +16,16 @@ var ParallaxObject = {
     /**
      * Iniciado del elemento
      */
-    init() {
+    init(fromResize) {
+        console.log('Inicializado');
         var anchoVista = $(window).outerWidth();
-        $('body,html').stop().scrollTop(0);//Posicionamos hasta arriba
+        if (!fromResize) {
+            //si es primera carga
+            $('body,html').stop().scrollTop(0);//Posicionamos hasta arriba
+        } else if (fromResize && anchoVista >= this.anchoMinimo) {
+            //si no es primera carga pero estamos en ancho mayor
+            $('body,html').stop().scrollTop(0);//Posicionamos hasta arriba
+        }
         //Reset
         this.DeleteEffect();
         //Aplicamos los cambios
@@ -30,7 +37,13 @@ var ParallaxObject = {
             this.iniciado = true;
         }
         this.ListenerEspecialMenuFlatHomeNoParallax();
-        this.CheckIfHashInUrl();
+        if (!fromResize) {
+            //si es primera carga
+            this.CheckIfHashInUrl();
+        } else if (fromResize && anchoVista >= this.anchoMinimo) {
+            //si no es primera carga pero estamos en ancho mayor
+            this.CheckIfHashInUrl();
+        }
     },
     CheckIfHashInUrl(){
         var hash = document.location.hash;
@@ -257,7 +270,7 @@ $(document).ready(function () {
 
     //Accion en resize
     $(window).on('resize', function () {
-        ParallaxObject.init();
+        ParallaxObject.init(true);
         setTimeout(function () {
             window.Cargando.borrar();
         }, 1500)

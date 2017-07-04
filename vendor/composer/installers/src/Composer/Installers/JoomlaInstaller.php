@@ -10,6 +10,4 @@ class JoomlaInstaller extends BaseInstaller
         'plugin'       => 'plugins/{$name}/',
         'library'      => 'libraries/{$name}/',
     );
-
-    // TODO: Add inflector for mod_ and com_ names
 }
