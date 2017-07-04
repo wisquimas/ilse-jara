@@ -80,7 +80,6 @@ var ParallaxObject = {
      * ELIMINA CLASES Y ELIMINA LISTENERS
      */
     DeleteEffect(){
-        //todo en movil esta entrando siempre esto
         var secciones = $('.' + this.claseSecciones);
         secciones.stop();
         secciones.removeClass(this.claseSecciones);
