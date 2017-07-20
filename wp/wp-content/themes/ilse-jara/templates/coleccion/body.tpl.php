@@ -41,6 +41,22 @@
             autoplaySpeed: 2000,
             autoplay: true,
             arrows: true,
+            responsive:[
+                {
+                    breakpoint: 1025,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                    }
+                },
+                {
+                    breakpoint: 680,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                    }
+                },
+            ]
         })
     </script>
 </div>
